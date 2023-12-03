@@ -1,4 +1,3 @@
-<!-- new style -->
 <?php get_header(); ?>
 <?php 
 $cat = get_queried_object(); 

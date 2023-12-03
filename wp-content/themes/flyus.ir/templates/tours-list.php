@@ -1,6 +1,26 @@
 <?php /* Template Name: Tour-list */ ?>
 <?php get_header(); ?>
     <!-- body  -->
+<?php
+    $argsTour = array(
+        'post_type' => 'tours',
+        'post_status'=> 'publish',
+    ) ;
+
+    $queryTour = new WP_Query( $argsTour );
+
+    if ( $queryTour->have_posts() ) 
+    {
+        while ( $queryTour->have_posts() ) {
+
+            $queryTour->the_post();
+        }
+    } ;
+    $ticket=get_post_meta( get_the_ID(), 'fly_tour_ticket_meta', true ); 
+    $hotel=get_post_meta( get_the_ID(), 'fly_tour_hotel_meta', true );
+?>
+
+
     <main class="main tour-list">
         <section class="list">
             <div class="container">
@@ -58,7 +78,11 @@
                                             <div class="tour-list__slider-content-wrapper">
                                                 <div class="tour-list__slider-content-end">
                                                     <p>مقصد</p>
-                                                    <span>کیش</span>
+                                                    <?php if(!empty($hotel[0]['fly_tour_hotel_name_meta'])) { ?>
+                                                        <span>
+                                                         <?php echo $hotel[0]['fly_tour_hotel_name_meta'] ?>
+                                                         </span>
+                                                     <?php }  ?>
                                                 </div>
                                                 <div class="tour-list__slider-content--devide"></div>
                                                 <div class="tour-list__slider-content-icon">
