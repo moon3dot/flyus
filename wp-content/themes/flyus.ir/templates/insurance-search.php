@@ -1,0 +1,687 @@
+<?php /* Template Name: insurance search */ ?>
+<?php get_header(); ?>
+
+<?php
+
+if ( ! empty( $_POST ) ) {
+
+	session_unset();
+	$_SESSION['age_12'] = $_POST['server-12-result'];
+	$_SESSION['age_13'] = $_POST['server-13-result'];
+	$_SESSION['age_66'] = $_POST['server-66-result'];
+	$_SESSION['age_71'] = $_POST['server-71-result'];
+	$_SESSION['age_76'] = $_POST['server-76-result'];
+	$_SESSION['age_81'] = $_POST['server-81-result'];
+
+	$_SESSION['passengers'] = $_POST['insurance-passengers-input'];
+
+	$_SESSION['single_insurance_destination_name'] = $_POST['single_insurance_destination_name'];
+	$_SESSION['single_insurance_destination_code'] = $_POST['single-insurance-destination-code'];
+
+	$_SESSION['single_travel_time'] = $_POST['single-travel-time'];
+
+}
+
+
+$soapClient = new SoapClient( INSURANCE_URL, array( 'trace' => 1, 'cache_wsdl' => WSDL_CACHE_NONE ) );
+$soapParams = array(
+	'username'          => INSURANCE_USER_NAME,
+	'password'          => INSURANCE_PASSWORD,
+	'countryCode'       => $_SESSION['single_insurance_destination_code'],
+	'birthDate'         => '1982-08-23',
+	'durationOfStay'    => $_SESSION['single_travel_time'],
+	'sourceCountryCode' => 1
+);
+try {
+	$response = $soapClient->__soapCall( 'getPlansWithDetail', array( $soapParams ) );
+	$plans    = [];
+	foreach ( $response->getPlansWithDetailResult->TISPlanInfo as $item ) {
+		$plan     = [
+			'code'               => $item->code,
+			'title'              => $item->title,
+			'titleEnglish'       => $item->titleEnglish,
+			'coverLimit'         => $item->coverLimit,
+			'price'              => $item->price,
+			'discount'           => $item->discount,
+			'discountPercentage' => $item->discountPercentage,
+			'priceGross'         => $item->priceGross,
+			'priceAvarez'        => $item->priceAvarez,
+			'priceTax'           => $item->priceTax,
+			'priceDiscount'      => $item->priceDiscount,
+			'priceTotal'         => $item->priceTotal,
+			'currencyCode'       => $item->currencyCode,
+			'covers'             => $item->covers
+		];
+		$plans [] = $plan;
+
+	}
+
+} catch ( SoapFault $e ) {
+
+}
+
+
+?>
+
+<!-- main  -->
+<main class="main">
+
+    <!-- breadcrumb  -->
+    <section class="breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb__list">
+                <li class="breadcrumb__list-item">
+                    <a href="#">
+                        ایده آل
+                    </a>
+                    <span class="breadcrumb__list-item--arrow"> > </span>
+                </li>
+                <li class="breadcrumb__list-item">
+                    <a href="#">
+                        لیست بیمه نامه های <?php echo $_SESSION['single_insurance_destination_name'] ?>
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- result box info -->
+    <div class="result-box">
+        <div class="container">
+            <div class="result-box__wrapper">
+                <p class="result-box__title">قیمت‌ها برای 1 نفر محاسبه شده است.</p>
+                <span class="result-box__text"> نتایج: <?php echo count( $response->getPlansWithDetailResult->TISPlanInfo ) ?> </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- result  -->
+    <section class="result">
+        <div class="container">
+			<?php
+			foreach ( $plans as $pl ) {
+				?>
+
+                <article class="insurance-box">
+                    <div class="insurance__head">
+                        <div class="insurance__head-wrapper">
+                            <div class="insurance__head-plan">
+                                <div class="insurance__head-plan_model">
+                                    <img
+                                            src="<?php echo THEME_IMAGE . '/insurance/saman-943be5e2 1.png' ?>"
+                                            alt="saman"
+                                    />
+                                    <h3><?php echo $pl['title'] ?></h3>
+                                </div>
+                                <div class="insurance__head-plan_body">
+                                    <p>تعهد مالی</p>
+                                    <span> <?php echo $pl['coverLimit'] ?> </span>
+                                </div>
+                            </div>
+                            <div class="insurance__head-detail">
+                                <p class="insurance__head-detail_title">شرکت کمک رسان</p>
+                                <p class="insurance__head-detail_text">
+                                    کمک‌رسان خاورمیانه (MidEast)
+                                </p>
+                            </div>
+                            <div class="insurance__head-price">
+                                <bdi class="insurance__head-price-item"> <?php echo $pl['price'] ?> ریال</bdi>
+                                <a class="insurance__head-price-button" data-code="<?php echo $pl['code'] ?>">انتخاب</a>
+                                <span class="insurance__head-price-detail">
+                    قیمت برای 1 نفر
+                  </span>
+                            </div>
+                        </div>
+                        <!-- add remove class active for active buttons  -->
+                        <div class="insurance__head-buttons">
+                            <button
+                                    data-id="insurance-service"
+                                    class="insurance__head-buttons_item active"
+                            >
+                                پوشش خدمات
+                            </button>
+                            <button
+                                    data-id="insurance-info"
+                                    class="insurance__head-buttons_item"
+                            >
+                                اطلاعات
+                            </button>
+                            <button
+                                    data-id="insurance-rule"
+                                    class="insurance__head-buttons_item"
+                            >
+                                قوانین استرداد
+                            </button>
+                        </div>
+                    </div>
+                    <div class="insurance__body">
+                        <!-- add remove class active for active content  -->
+                        <div class="insurance__body-wrapper">
+                            <div class="insurance-table__container">
+                                <table
+                                        class="insurance insurance-content active"
+                                        id="insurance-service"
+                                >
+                                    <thead class="insurance-header">
+                                    <tr class="insurance-header__row">
+                                        <th
+                                                class="insurance-header__title insurance-header__title--text"
+                                        >
+                                            شرح خدمات
+                                        </th>
+                                        <th
+                                                class="insurance-header__title insurance-header__title-main--price"
+                                        >
+                                            سقف پوشش
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="insurance-body">
+									<?php
+									foreach ( $pl['covers']->TISPlanCoversInfo as $cover ) {
+										?>
+
+                                        <tr class="insurance-body__row">
+                                            <td class="insurance-body__item">
+												<?php
+												echo $cover->coverTitle;
+												?>
+                                            </td>
+                                            <td class="insurance-body__item insurance-body__item--price">
+												<?php
+												echo $cover->planCoverLimit;
+												?>
+                                            </td>
+                                        </tr>
+										<?php
+									}
+									?>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="insurance-content" id="insurance-info">
+                                <div class="insurance-info__box">
+                                    <p class="insurance-info__box-title">
+                                        شرکت کمک رسان چیست ؟
+                                    </p>
+                                    <span class="insurance-info__box-desc">
+                      خدمات بیمه مسافرتی در خارج از کشور از طریق شرکت های کمک
+                      رسان انجام می شود.
+                    </span>
+                                </div>
+                                <div class="insurance-info__detail">
+                                    <div class="insurance-info__detail-item">
+                                        <p class="insurance-info__detail-title">تعهد مالی</p>
+                                        <span class="insurance-info__detail-desc">
+                        <?php echo $pl['coverLimit'] ?>
+                      </span>
+                                    </div>
+                                    <div class="insurance-info__detail-item">
+                                        <p class="insurance-info__detail-title">شرکت کمک رسان</p>
+                                        <span class="insurance-info__detail-desc">
+                        Mideast Assistance
+                      </span>
+                                    </div>
+                                    <div class="insurance-info__detail-item"></div>
+                                </div>
+                                <ul class="insurance-info__list">
+                                    <li class="nsurance-info__list-item">
+                                        اعتبار این بیمه‌نامه از زمان خروج از کشور آغاز می‌گردد. به
+                                        منظور استفاده از این بیمه‌نامه تا 6 ماه پس از صدور آن
+                                        می‌توانید از کشور خارج شوید، در غیر این صورت بیمه‌نامه
+                                        فاقد اعتبار خواهد بود.
+                                    </li>
+                                    <li class="nsurance-info__list-item">
+                                        در صورت عدم استفاده از بیمه‌نامه (به علت عدم دریافت ویزا،
+                                        انصراف از سفر و یا دلایل دیگر) تا 6ماه پس از صدور
+                                        می‌توانید نسبت به استرداد بیمه‌نامه اقدام نمایید.
+                                    </li>
+                                    <li class="nsurance-info__list-item">
+                                        نکته : در صورت عدم دریافت ویزا، بابت بیمه های کم‌تر از 6
+                                        ماه، تا 6 ماه پس از صدور و بابت بیمه های 6 ماهه و یک ساله،
+                                        تا یک سال پس از صدور می توانید نسبت به استرداد بیمه نامه
+                                        اقدام نمایید
+                                    </li>
+                                    <li class="nsurance-info__list-item">
+                                        ر صورت پایان اعتبار بیمه‌نامه در طول سفر، تمدید آن مقدور
+                                        نمی‌باشد.
+                                    </li>
+                                    <li class="nsurance-info__list-item">
+                                        تاریخ شروع بیمه نامه از زمان خروج بیمه شده از مرز های
+                                        قانونی کشور مبدا بوده و نهایت مدت اعتبار آن در خارج از
+                                        کشور 92 روز متوالی می باشد.
+                                    </li>
+                                    <li class="nsurance-info__list-item">
+                                        در کلیه شرایط اعلام بروز خسارت حداکثر ظرف مدت 10 روز (240
+                                        ساعت) به شرکت کمک‌رسان الزامی می‌باشد.
+                                    </li>
+                                    <li class="nsurance-info__list-item">
+                                        به منظور اطلاع از پوشـش‌هاي ارائه‌شده در بیمه‌نامه‌ی خود،
+                                        به قسمت «پوشش خدمات» مراجعه کنید.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div
+                                    class="insurance-content insurance-content__rule"
+                                    id="insurance-rule"
+                            >
+                                <div class="insurance-rule__success">
+                                    <div class="insurance-rule__success-detail">
+                                        <p class="insurance-rule__success-detail--desc">
+                                            در ﺻﻮرت ﻋﺪم اﺳﺘﻔﺎده ﺗﺎ ۶ ﻣﺎه ﺑﻌﺪ از ﺻﺪور با شرایط زیر:
+                                        </p>
+                                        <ul class="insurance-rule__success-detail--list">
+                                            <li class="insurance-rule__success-detail--item">
+                                                در صورت ریجکت شدن ویزا
+                                            </li>
+                                            <li class="insurance-rule__success-detail--item">
+                                                در صورت پشیمان شدن از انجام سفر
+                                            </li>
+                                            <li class="insurance-rule__success-detail--item">
+                                                در صورت عدم اقدام برای دریافت ویزا
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <p
+                                            class="insurance-rule__success-message insurance-rule__message"
+                                    >
+                                        بازگشت کامل وجه
+                                    </p>
+                                </div>
+                                <div class="insurance-rule__error">
+                                    <p class="insurance-rule__error-desc">
+                                        پس از گذشت 6 ماه از زمان صدور
+                                    </p>
+                                    <p
+                                            class="insurance-rule__error-message insurance-rule__message"
+                                    >
+                                        ۱۰۰٪ جریمه
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+				<?php
+			}
+			?>
+        </div>
+        <div class="result-shadow__right shadow shadow-right"></div>
+        <div class="result-shadow__left shadow shadow-left"></div>
+    </section>
+
+    <!-- content  -->
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="insurance__info-box box-style">
+                    <p class="list__desc-title">زمان پردازش ویزا</p>
+                    <ul class="list__desc-text">
+                        <li>
+                            زمان پردازش ویزا: پروسه صدور ویزا بصورت عادی ۲ تا ۴ روز کاری
+                            زمان میبرد. ولی چنانچه برای بررسی بیشتر رود ممکن است ۶ تا ۷
+                            روز کاری زمان می‌برد.
+                        </li>
+                        <li>
+                            مبنای محاسبه، یک روز پس از ارائه و ارسال مدارک است (بدون
+                            احتساب تعطیلات رسمی کشور و تعطیلات سفارت)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h3 class="content__title">ویزا چیست؟</h3>
+                    <p class="content__desc">
+                        اگر عازم سفر خارجی باشید، حتما با ویزا سروکار خواهید داشت. ما
+                        اینجا درباره این صحبت می‌کنیم که ویزا دقیقا چیست و چرا برای سفر
+                        به کشورهای خارجی باید آن را درخواست کرد؟برای پاسخ به سوال «ویزا
+                        چیست؟» و فهم بهتر آن با یک مثال پیش می‌رویم. تصور کنید می‌خواهید
+                        به خانه کسی بروید. در قدم اول چه کار می‌کنید؟ طبیعتا از
+                        صاحب‌خانه اجازه می‌گیرید؛ چون ورود به هر خانه‌ای، بدون اجازه
+                        صاحب‌خانه‌اش ممکن نیست. ویزا هم به‌نوعی اجازه صاحب‌خانه محسوب
+                        می‌شود.ویزا یک مجوز است؛ مجوزی برای سفر به کشورهای خارجی. هر
+                        مسافری که بخواهد به کشوری خارجی سفر کند، در وهله اول باید از آن
+                        کشور اجازه بگیرد؛ یعنی به سفارت‌خانه کشور مقصدش مراجعه و درخواست
+                        ویزای آنجا را می‌کند.اگر شما هم قصد سفر به کشورهای خارجی را
+                        دارید و می‌خواهید اطلاعات بیشتری درباره آن کسب کنید، این مطلب را
+                        تا انتها بخوانید.
+                    </p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <img
+                            src="<?php echo THEME_IMAGE . '/visa/Rectangle 2520.jpg' ?>"
+                            alt="visa"
+                            class="content__banner"
+                    />
+                </div>
+            </div>
+            <div class="row col-revers">
+                <div class="col-12 col-md-6">
+                    <img
+                            src="<?php echo THEME_IMAGE . '/visa/Rectangle 2520.jpg' ?>"
+                            alt="visa"
+                            class="content__banner"
+                    />
+                </div>
+                <div class="col-12 col-md-6">
+                    <h3 class="content__title">ویزا چیست؟</h3>
+                    <p class="content__desc">
+                        اگر عازم سفر خارجی باشید، حتما با ویزا سروکار خواهید داشت. ما
+                        اینجا درباره این صحبت می‌کنیم که ویزا دقیقا چیست و چرا برای سفر
+                        به کشورهای خارجی باید آن را درخواست کرد؟برای پاسخ به سوال «ویزا
+                        چیست؟» و فهم بهتر آن با یک مثال پیش می‌رویم. تصور کنید می‌خواهید
+                        به خانه کسی بروید. در قدم اول چه کار می‌کنید؟ طبیعتا از
+                        صاحب‌خانه اجازه می‌گیرید؛ چون ورود به هر خانه‌ای، بدون اجازه
+                        صاحب‌خانه‌اش ممکن نیست. ویزا هم به‌نوعی اجازه صاحب‌خانه محسوب
+                        می‌شود.ویزا یک مجوز است؛ مجوزی برای سفر به کشورهای خارجی. هر
+                        مسافری که بخواهد به کشوری خارجی سفر کند، در وهله اول باید از آن
+                        کشور اجازه بگیرد؛ یعنی به سفارت‌خانه کشور مقصدش مراجعه و درخواست
+                        ویزای آنجا را می‌کند.اگر شما هم قصد سفر به کشورهای خارجی را
+                        دارید و می‌خواهید اطلاعات بیشتری درباره آن کسب کنید، این مطلب را
+                        تا انتها بخوانید.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h3 class="content__title">ویزا چیست؟</h3>
+                    <p class="content__desc">
+                        اگر عازم سفر خارجی باشید، حتما با ویزا سروکار خواهید داشت. ما
+                        اینجا درباره این صحبت می‌کنیم که ویزا دقیقا چیست و چرا برای سفر
+                        به کشورهای خارجی باید آن را درخواست کرد؟برای پاسخ به سوال «ویزا
+                        چیست؟» و فهم بهتر آن با یک مثال پیش می‌رویم. تصور کنید می‌خواهید
+                        به خانه کسی بروید. در قدم اول چه کار می‌کنید؟ طبیعتا از
+                        صاحب‌خانه اجازه می‌گیرید؛ چون ورود به هر خانه‌ای، بدون اجازه
+                        صاحب‌خانه‌اش ممکن نیست. ویزا هم به‌نوعی اجازه صاحب‌خانه محسوب
+                        می‌شود.ویزا یک مجوز است؛ مجوزی برای سفر به کشورهای خارجی. هر
+                        مسافری که بخواهد به کشوری خارجی سفر کند، در وهله اول باید از آن
+                        کشور اجازه بگیرد؛ یعنی به سفارت‌خانه کشور مقصدش مراجعه و درخواست
+                        ویزای آنجا را می‌کند.اگر شما هم قصد سفر به کشورهای خارجی را
+                        دارید و می‌خواهید اطلاعات بیشتری درباره آن کسب کنید، این مطلب را
+                        تا انتها بخوانید.
+                    </p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <img
+                            src="<?php echo THEME_IMAGE . '/visa/Rectangle 2520.jpg' ?>"
+                            alt="visa"
+                            class="content__banner"
+                    />
+                </div>
+            </div>
+            <div class="row col-revers">
+                <div class="col-12 col-md-6">
+                    <img
+                            src="<?php echo THEME_IMAGE . '/visa/Rectangle 2520.jpg' ?>"
+                            alt="visa"
+                            class="content__banner"
+                    />
+                </div>
+                <div class="col-12 col-md-6">
+                    <h3 class="content__title">ویزا چیست؟</h3>
+                    <p class="content__desc">
+                        اگر عازم سفر خارجی باشید، حتما با ویزا سروکار خواهید داشت. ما
+                        اینجا درباره این صحبت می‌کنیم که ویزا دقیقا چیست و چرا برای سفر
+                        به کشورهای خارجی باید آن را درخواست کرد؟برای پاسخ به سوال «ویزا
+                        چیست؟» و فهم بهتر آن با یک مثال پیش می‌رویم. تصور کنید می‌خواهید
+                        به خانه کسی بروید. در قدم اول چه کار می‌کنید؟ طبیعتا از
+                        صاحب‌خانه اجازه می‌گیرید؛ چون ورود به هر خانه‌ای، بدون اجازه
+                        صاحب‌خانه‌اش ممکن نیست. ویزا هم به‌نوعی اجازه صاحب‌خانه محسوب
+                        می‌شود.ویزا یک مجوز است؛ مجوزی برای سفر به کشورهای خارجی. هر
+                        مسافری که بخواهد به کشوری خارجی سفر کند، در وهله اول باید از آن
+                        کشور اجازه بگیرد؛ یعنی به سفارت‌خانه کشور مقصدش مراجعه و درخواست
+                        ویزای آنجا را می‌کند.اگر شما هم قصد سفر به کشورهای خارجی را
+                        دارید و می‌خواهید اطلاعات بیشتری درباره آن کسب کنید، این مطلب را
+                        تا انتها بخوانید.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h3 class="content__title">ویزا چیست؟</h3>
+                    <p class="content__desc">
+                        اگر عازم سفر خارجی باشید، حتما با ویزا سروکار خواهید داشت. ما
+                        اینجا درباره این صحبت می‌کنیم که ویزا دقیقا چیست و چرا برای سفر
+                        به کشورهای خارجی باید آن را درخواست کرد؟برای پاسخ به سوال «ویزا
+                        چیست؟» و فهم بهتر آن با یک مثال پیش می‌رویم. تصور کنید می‌خواهید
+                        به خانه کسی بروید. در قدم اول چه کار می‌کنید؟ طبیعتا از
+                        صاحب‌خانه اجازه می‌گیرید؛ چون ورود به هر خانه‌ای، بدون اجازه
+                        صاحب‌خانه‌اش ممکن نیست. ویزا هم به‌نوعی اجازه صاحب‌خانه محسوب
+                        می‌شود.ویزا یک مجوز است؛ مجوزی برای سفر به کشورهای خارجی. هر
+                        مسافری که بخواهد به کشوری خارجی سفر کند، در وهله اول باید از آن
+                        کشور اجازه بگیرد؛ یعنی به سفارت‌خانه کشور مقصدش مراجعه و درخواست
+                        ویزای آنجا را می‌کند.اگر شما هم قصد سفر به کشورهای خارجی را
+                        دارید و می‌خواهید اطلاعات بیشتری درباره آن کسب کنید، این مطلب را
+                        تا انتها بخوانید.
+                    </p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <img
+                            src="<?php echo THEME_IMAGE . '/visa/Rectangle 2520.jpg' ?>"
+                            alt="visa"
+                            class="content__banner"
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="content__desc">
+                    <p class="content-list">
+                        انواع ویزا: <br/>
+                        همان طور که گفتیم، ویزا انواع مختلفی دارد که در ادامه با آن‌ها
+                        آشنا خواهیم شد:
+                    </p>
+                    <ul class="content-list__visa">
+                        <li class="content-list__visa-item">
+                            ویزای ترانزیت: نوعی ویزای کوتاه‌مدت است. اگر پرواز مسافر
+                            ترانزیت‌دار باشد، یعنی باید چند ساعتی را در یک کشور میانی،
+                            منتظر پرواز بعدی‌اش بشود.
+                        </li>
+                        <li class="content-list__visa-item">
+                            ویزای توریستی: همان طور که از اسمش هم معلوم است، مجوزی برای یک
+                            سفر توریستی کوتاه‌مدت است مجوزی برای گشت‌وگذار در سطح کشور و
+                            دیدن جاذبه‌های گردشگری. صاحب ویزای توریستی، اجازه کار یا اقامت
+                            ندارد.
+                        </li>
+                        <li class="content-list__visa-item">
+                            ویزای کار: این ویزا مناسب مسافرانی است که برای پیداکردن کار،
+                            به یک کشور سفر می‌کنند.
+                        </li>
+                        <li class="content-list__visa-item">
+                            ویزای درمانی: این ویزا مخصوص بیمارانی است که قصد دارند با هدف
+                            درمان سفر کنند. ویزای درمانی فقط در شرایطی صادر می‌شود که
+                            مدارک پزشکی بیمار، طبق شرایط اخذ ویزای درمانی باشد
+                        </li>
+                    </ul>
+                    <p class="content-list">
+                        ویزاها لزوما براساس هدف سفر، تقسیم‌بندی نمی‌شوند. در ادامه به
+                        انواع دیگر ویزا اشاره می‌کنیم:
+                    </p>
+                    <ul class="content-list__visa">
+                        <li class="content-list__visa-item">
+                            ویزای یکبار ورود: اعتبار این ویزا بعد از یک بار ورود و خروج به
+                            کشور مقصد، از بین می‌رود؛ حتی اگر از مدت‌زمان اعتبار ویزا باقی
+                            مانده باشد.
+                        </li>
+                        <li class="content-list__visa-item">
+                            ویزای مولتی: تا زمانی که ویزا اعتبار زمانی داشته باشد، مسافر
+                            می‌تواند به‌طور نامحدود وارد کشور مقصد شده و آنجا را ترک کند.
+                        </li>
+                        <li class="content-list__visa-item">
+                            ویزای محض ورود (visa on-arrival): نام دیگر این ویزا، ویزای
+                            فرودگاهی است؛ ویزایی که برای درخواست آن لازم نیست از قبل
+                            اقدامی کرده باشید. به‌محض ورود به فرودگاه، آن را درخواست
+                            می‌دهید و تحویل می‌گیرید.
+                        </li>
+                        <li class="content-list__visa-item">
+                            ویزای الکترونیکی (E-VISA): فرایند درخواست و دریافت این ویزا،
+                            همان طور که از اسمش هم معلوم است به‌صورت الکترونیکی خواهد بود.
+                        </li>
+                        <li class="content-list__visa-item">
+                            ویزای کوتاه‌مدت یا بازدیدکننده: این ویزا غیرمهاجرتی است و
+                            مشخصه اصلی‌اش، اعتبار زمانی کوتاه است؛ مثل ویزای توریستی یا
+                            کاری.
+                        </li>
+                    </ul>
+                    <p class="content-list__visa-item">
+                        درخواست آنلاین ویزا علی بابا <br/>
+                        همان طور که بالاتر هم گفتیم، فرایند درخواست ویزا به دو صورت
+                        مستقیم یا از طریق آژانس انجام می‌شود. شما می‌توانید با مراجعه
+                        حضوری به سفارتخانه کشور مقصد، ویزای خودتان را درخواست بدهید.
+                        احتمالا اگر زمان کافی برای پیگیری نداشته باشید، این روش برایتان
+                        سخت و پرزحمت خواهد بود.حالا که تا اینجای مطلب همراه ما بودید، به
+                        احتمال زیاد مسافر هستید و می‌خواهید فرایند درخواست ویزا را پیش
+                        ببرید. اگر ترجیح می‌دهید ویزایتان را بی‌دغدغه و راحت دریافت
+                        کنید، پیشنهاد ما یک راه سریع و مطمئن است: سپردن این کار به
+                        علی‌بابا. <br/>
+                        برای شروع کافی است وارد وب‌سایت یا اپلیکیشن علی‌بابا بشوید؛ سپس
+                        با چند کلیک ساده، ویزای خودتان را درخواست بدهید. در صفحه ویزای
+                        کشور مدنظر شما، همه اطلاعات لازم مانند لیست قیمت‌ها، مراحل اخذ
+                        ویزا و مدارک لازم، نوشته شده است؛ با همه این‌ها اگر باز هم نیاز
+                        به راهنمایی داشتید، کافی است با شماره
+                        <span id="ideall__number">43900880-021</span> تماس بگیرید.
+                    </p>
+                </div>
+            </div>
+            <div class="content__info-box box-style">
+                <p class="list__desc-title">زمان پردازش ویزا</p>
+                <span class="list__desc-text">
+              پروسه صدور ویزا بصورت عادی ۲ تا ۴ روز کاری زمان میبرد. ولی چنانچه
+              برای بررسی بیشتر رود ممکن است ۶ تا ۷ روز کاری زمان می‌برد. مبنای
+              محاسبه، یک روز پس از ارائه و ارسال مدارک است (بدون احتساب تعطیلات
+              رسمی کشور و تعطیلات سفارت)
+            </span>
+            </div>
+        </div>
+        <div class="content-shadow__left shadow shadow-left"></div>
+        <div class="content-shadow__right shadow shadow-right"></div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="main-title">
+                <h2 class="main-title__heading">سوالات متداول</h2>
+                <svg
+                        class="main-title__icon"
+                        width="13"
+                        height="17"
+                        viewBox="0 0 13 17"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                            d="M4.11712 0.262512L4.12041 1.04394L5.56702 2.65957L5.23202 6.98181L0.183716 4.83096L0.199615 5.99013L4.97121 10.1167C4.84971 14.6839 6.20202 16.2018 6.20202 16.2018C6.20202 16.2018 7.54401 14.6948 7.39101 10.1367L12.163 6.06968L12.169 4.88457L7.12601 6.96899L6.77602 2.6444L8.23002 1.058L8.22601 0.276573L6.23202 0.72131L4.11712 0.262512Z"
+                            fill="#094899"
+                    />
+                </svg>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-7 col-lg-6">
+                    <div class="faq__accordion">
+                        <div class="accordion-item active">
+                            <div class="accordion-button">
+                                <h4 class="accordion-button__title">
+                                    چند روز قبل از پرواز، بلیط هواپیما را بخریم؟
+                                </h4>
+                                <button class="accordion-button__icon">
+                                    <span></span>
+                                </button>
+                            </div>
+                            <p class="accordion-content">
+                                های سئو یک آژانس ارائه دهنده خدمات سئو و بهینه سازی است، که
+                                کسب و کار آنلاین شما را بررسی میکند و براساسِ اِستراتژی
+                                مناسب حوزه فعالیت شما، راهکارهای استفاده از کانال بازاریابی
+                                دیجیتال مانند: سئو (سرچ اُرگانیک در گوگل)، بازاریابی شبکه
+                                های اِجتماعی، تولید محتوای فَنی و بَصری، را ارائه میدهد.
+                            </p>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-button">
+                                <h4 class="accordion-button__title">
+                                    چند روز قبل از پرواز، بلیط هواپیما را بخریم؟
+                                </h4>
+                                <button class="accordion-button__icon">
+                                    <span></span>
+                                </button>
+                            </div>
+                            <p class="accordion-content">
+                                های سئو یک آژانس ارائه دهنده خدمات سئو و بهینه سازی است، که
+                                کسب و کار آنلاین شما را بررسی میکند و براساسِ اِستراتژی
+                                مناسب حوزه فعالیت شما، راهکارهای استفاده از کانال بازاریابی
+                                دیجیتال مانند: سئو (سرچ اُرگانیک در گوگل)، بازاریابی شبکه
+                                های اِجتماعی، تولید محتوای فَنی و بَصری، را ارائه میدهد.
+                            </p>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-button">
+                                <h4 class="accordion-button__title">
+                                    چند روز قبل از پرواز، بلیط هواپیما را بخریم؟
+                                </h4>
+                                <button class="accordion-button__icon">
+                                    <span></span>
+                                </button>
+                            </div>
+                            <p class="accordion-content">
+                                های سئو یک آژانس ارائه دهنده خدمات سئو و بهینه سازی است، که
+                                کسب و کار آنلاین شما را بررسی میکند و براساسِ اِستراتژی
+                                مناسب حوزه فعالیت شما، راهکارهای استفاده از کانال بازاریابی
+                                دیجیتال مانند: سئو (سرچ اُرگانیک در گوگل)، بازاریابی شبکه
+                                های اِجتماعی، تولید محتوای فَنی و بَصری، را ارائه میدهد.
+                            </p>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-button">
+                                <h4 class="accordion-button__title">
+                                    چند روز قبل از پرواز، بلیط هواپیما را بخریم؟
+                                </h4>
+                                <button class="accordion-button__icon">
+                                    <span></span>
+                                </button>
+                            </div>
+                            <p class="accordion-content">
+                                های سئو یک آژانس ارائه دهنده خدمات سئو و بهینه سازی است، که
+                                کسب و کار آنلاین شما را بررسی میکند و براساسِ اِستراتژی
+                                مناسب حوزه فعالیت شما، راهکارهای استفاده از کانال بازاریابی
+                                دیجیتال مانند: سئو (سرچ اُرگانیک در گوگل)، بازاریابی شبکه
+                                های اِجتماعی، تولید محتوای فَنی و بَصری، را ارائه میدهد.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5 col-lg-6">
+                    <div class="faq-banner">
+                        <img
+                                src="<?php echo THEME_IMAGE . '/b2b-faq 1.png' ?>"
+                                alt="FAQ"
+                                class="faq-banner__item"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="faq-shadow__right shadow shadow-right"></div>
+    </section>
+</main>
+
+<?php get_footer(); ?>
+
+
+<script>
+
+    jQuery(document).ready(function ($) {
+
+        const btnItemsInsurance = document.querySelectorAll('.insurance__head-price-button');
+        const btnSelectInsurance = (e) => {
+            window.location.href = "register-insurance/?plan=" + JSON.stringify(e.target.dataset.code);
+        };
+        btnItemsInsurance?.forEach((item) => {
+            item.addEventListener('click', btnSelectInsurance)
+        })
+    })
+
+</script>

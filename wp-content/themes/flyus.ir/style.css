@@ -1,0 +1,23 @@
+/*
+Theme Name:				flyus-ir
+Text Domain:			flyus.ir
+Version:				0.3.0
+Description:			
+Author:					Hamzeh Ghalavand
+*/
+
+.footer__license{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    justify-items: center;
+    margin-bottom: 30px;
+}
+.footer__license img{
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    margin: 0 20px;
+    padding: 5px;
+    border-radius: 1px;
+}

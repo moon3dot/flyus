@@ -1,0 +1,33 @@
+<?php get_header(); ?>
+<!-- body  -->
+ <main class="main">
+        <!-- hero  -->
+        <?php get_template_part('template-parts/landing/hero') ?>
+        <!-- popularity  -->
+        <?php get_template_part('template-parts/landing/popularity') ?>
+        <!-- history  -->
+        <?php get_template_part('template-parts/landing/history') ?>
+        <!-- boxes  -->
+        <?php get_template_part('template-parts/landing/boxes') ?>
+        <!-- description1  -->
+        <?php get_template_part('template-parts/landing/description1') ?>
+        <!-- info1  -->
+        <?php get_template_part('template-parts/landing/info1') ?>
+        <!-- levels  -->
+        <?php get_template_part('template-parts/landing/levels') ?>
+        <!-- levels-responsive  -->
+        <?php get_template_part('template-parts/landing/levels-responsive') ?>
+        <!-- info2  -->
+        <?php get_template_part('template-parts/landing/info2') ?>
+        <!-- content  -->
+        <?php get_template_part('template-parts/landing/content') ?>
+        <!-- info3  -->
+        <?php get_template_part('template-parts/landing/info3') ?>
+        <!-- description2  -->
+        <?php get_template_part('template-parts/landing/description2') ?>
+        <!-- video  -->
+        <?php get_template_part('template-parts/landing/video') ?>
+        <!-- faq  -->
+        <?php get_template_part('template-parts/landing/faq') ?>
+</main>
+<?php get_footer(); ?>
