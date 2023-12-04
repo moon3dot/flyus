@@ -1,3 +1,4 @@
+// new js file
 //variables
 const responsiveBtn = document.getElementById("responsive__toggle");
 const menuItems = document.querySelectorAll('.navbar__list-item .navbar__list-link');
@@ -18,6 +19,7 @@ const orderingButton = document.getElementById("ordering-box__order");
 const orderingItems = document.querySelector(".ordering-box__list");
 const closeOrderingListBtn = document.getElementById(
   "ordering-box__list-close"
+
 );
 const contentTabButtonsWrapper = document.querySelector(
   ".insurance__head-buttons"
@@ -53,6 +55,7 @@ const insuranceMultiDestination = document.getElementById("multi-destination");
 const addInsuranceDestination = document.getElementById("add-insurance--destination");
 let accordionItem = null;
 const pathname = window.location.pathname;
+const hideBtn = document.querySelector('.insurance__head-buttons_item-hide')
 //functions
 
 //insert icon
@@ -188,18 +191,25 @@ const activeSubMenuHandler = e => {
 }
 
 ///Content Tab
+
+const transition = document.querySelector('.insurance__body-wrapper');
+
 const changeTabHandler = (e) => {
   //active title with click
   contentTabButtons.forEach((item) => item.classList.remove("active"));
   e.target.classList.add("active");
   //active content with click
   contentTabContent.forEach((item) => item.classList.remove("active"));
-  const mainContent = document.getElementById(e.target.dataset.id);
-  mainContent.classList.add("active");
-  const transition = document.querySelector('.insurance__body-wrapper');
-  transition.classList.remove('insurance__body-wrapper')
+  const mainContent = document.getElementById(e.target.dataset.id) ;
+  mainContent && mainContent.classList.add("active");
+  
+  // transition.classList.remove('insurance__body-wrapper')
   transition.classList.add('insurance__body-wrapper-active')
+  hideBtn.classList.remove('remove-hide-btn')
+  hideBtn.classList.add('add-hide-btn')
 };
+
+
 
 ///Ticket box
 const collapseHandler = (e) => {
@@ -597,7 +607,7 @@ const closeFormVisHandler = () => {
 //insurance form
 const submitInsuranceForm = e => {
   e.preventDefault();
-  alert("submit form")
+  // alert("submit form")
 }
 
 //date active
@@ -853,3 +863,10 @@ insurancePassengersInput?.addEventListener("click", toggleInsurancePassengerHand
 insuranceSingleDestination?.addEventListener("change", toggleInsuranceDestFrom);
 insuranceMultiDestination?.addEventListener("change", toggleInsuranceDestFrom);
 addInsuranceDestination?.addEventListener("click", toggleDestinationHandler);
+ hideBtn?.addEventListener(
+  'click', (e) => {
+    transition.classList.remove('insurance__body-wrapper-active')
+    hideBtn.classList.add('remove-hide-btn')
+    e.stopPropagation();
+  }
+)

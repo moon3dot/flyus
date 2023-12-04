@@ -15,9 +15,9 @@ $soapParams = array(
 	'durationOfStay'    => $_SESSION['single_travel_time'],
 	'sourceCountryCode' => 1
 );
+$plans = [];
 try {
 	$response = $soapClient->__soapCall( 'getPlansWithDetail', array( $soapParams ) );
-	$plans    = [];
 	foreach ( $response->getPlansWithDetailResult->TISPlanInfo as $item ) {
 
 		$plan = [
@@ -47,8 +47,26 @@ try {
 
 }
 
+$tempPrice=$plans[0]['price'];
+
+$totalPrice =  0;
+if($_SESSION['age_12'] > 0)
+    $totalPrice += ($_SESSION['age_12'] * $tempPrice);
+
+if($_SESSION['age_13'] > 0)
+    $totalPrice += ($_SESSION['age_13'] * $tempPrice);
+
+if($_SESSION['age_66'] > 0)
+    $totalPrice += ($_SESSION['age_66'] * $tempPrice);
+
+if($_SESSION['age_71'] > 0)
+    $totalPrice += ($_SESSION['age_71'] * $tempPrice);
+
+if($_SESSION['age_76'] > 0)
+    $totalPrice += ($_SESSION['age_76'] * $tempPrice);
 
 ?>
+
     <!-- main  -->
     <main class="main">
         <!-- navigation  -->
@@ -163,7 +181,7 @@ try {
                                 </defs>
                             </svg>
                         </div>
-                        <p class="insurance-navigation__title active">انتخاب بیمه نامه</p>
+                        <p class="insurance-navigation__title active">مشخصات مسافر</p>
                         <div class="insurance-navigation__list-bullet"></div>
                     </li>
                     <li class="insurance-navigation__item">
@@ -218,7 +236,7 @@ try {
                                 </defs>
                             </svg>
                         </div>
-                        <p class="insurance-navigation__title">انتخاب بیمه نامه</p>
+                        <p class="insurance-navigation__title">تایید اطلاعات</p>
                         <div class="insurance-navigation__list-bullet"></div>
                     </li>
                     <li class="insurance-navigation__item">
@@ -273,7 +291,7 @@ try {
                                 </defs>
                             </svg>
                         </div>
-                        <p class="insurance-navigation__title">انتخاب بیمه نامه</p>
+                        <p class="insurance-navigation__title">بررسی و پرداخت</p>
                         <div class="insurance-navigation__list-bullet"></div>
                     </li>
                     <li class="insurance-navigation__item">
@@ -328,7 +346,7 @@ try {
                                 </defs>
                             </svg>
                         </div>
-                        <p class="insurance-navigation__title">انتخاب بیمه نامه</p>
+                        <p class="insurance-navigation__title">صدور بیمه نامه </p>
                     </li>
                 </ul>
 
@@ -396,6 +414,7 @@ try {
             <div class="container">
                 <div class="insurance-form__wrapper">
                     <form>
+                        <input type="hidden" value="<?php  echo $totalPrice?>">
                         <div class="insurance-header__form">
 
                             <div class="visa-payment__info-form--title">
@@ -486,7 +505,9 @@ try {
                                 <button type="button" class="insurance-form__add">اضافه کردن مسافر جدید</button>
                             </div>
                             <div class="insurance-form__btns-detail">
-                                <span class="insurance-form__price">980,000 ریال</span>
+                                <span class="insurance-form__price"><?php 
+                                echo $totalPrice;
+                                ?></span>
                                 <button type="submit" class="insurance-form__submit">ادامه خرید</button>
                             </div>
                         </div>
