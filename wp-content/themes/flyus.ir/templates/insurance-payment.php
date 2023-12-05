@@ -414,7 +414,7 @@ if($_SESSION['age_76'] > 0)
             <div class="container">
                 <div class="insurance-form__wrapper">
                     <form action="/insurance-verifyinfo" method="post">
-                        <input type="hidden" value="<?php  echo $totalPrice?>">
+                        <input type="hidden" value="<?php  echo $totalPrice?>" name="totalPrice">
                         <div class="insurance-header__form">
 
                             <div class="visa-payment__info-form--title">

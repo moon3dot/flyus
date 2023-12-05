@@ -32,7 +32,22 @@ $nationalCode = $_POST['national-Code'];
 if(isset($_POST["visa-type"]))
     $visaType = $_POST['visa-type'];
 
+if(isset($_POST["totalPrice"]))
+    $visaType = $_POST['totalPrice'];
 
+
+?>
+
+<?php 
+//is_user_logged_in();
+
+function checkedUser() {
+    if(is_user_logged_in())
+     $actionForm = '/checkOutpage';
+
+     else
+     $actionForm = './loginpage';
+};
 ?>
 <p>نام
     <span><?php  echo $name; ?></span>
@@ -410,7 +425,7 @@ if(isset($_POST["visa-type"]))
                                 <td><?php echo $passportNumber ?></td>
                                 <td><?php echo $nationalCode ?></td>
                                 <td>13 تا 65 سال</td>
-                                <td>30125434ریال</td>
+                                <td><?php echo $totalPrice ?>ریال</td>
                             </tr>
                            </tbody>
                         </table>
@@ -439,7 +454,9 @@ if(isset($_POST["visa-type"]))
                             </button>
                         </div>
                         <div>
-                            <button class="online-payment-btn">پرداخت آنلاین</button>
+                            <form action="<?php echo'$actionForm' ?>">
+                                <button class="online-payment-btn">پرداخت آنلاین</button>
+                        </form>
                         </div>
                     </div>
                </div>

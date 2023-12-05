@@ -1,3 +1,4 @@
+<!-- new style 1 -->
 <?php get_header(); ?>
 <?php 
 $cat = get_queried_object(); 
@@ -126,11 +127,17 @@ $query_cat = new WP_Query($args);
                           <div class="swiper tourboxSwiper">
                             <div class="swiper-wrapper">
                               <div class="swiper-slide">
-                              <img src="<?php the_post_thumbnail_url() ?>" alt="hotel">
-                              </div>
+                                  <div class="swiper-parent-flex">
+                                  <div class="swiper-button-next"></div>
+                                  <div class="swiper-button-prev"></div>
+                                  </div>
+                              <img src="<?php the_post_thumbnail_url() ?>" alt="hotel" class="image-swiper-flex">
                             </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
+                        </div>
+                        
+                            
+                            
+
                           </div>
                         </div>
                       </div>
@@ -405,14 +412,16 @@ $query_cat = new WP_Query($args);
                               </svg>
                             </a>
                             <a class="hotel-box__body__left-reserve" href="<?php the_permalink() ?>">
-                              <p class="hotel-box__body__left-reserve-text">
-                                <span>رزرو تلفنی </span>
+                             
+                             <p class="hotel-box__body__left-reserve-text">
+                                <span class="phone-reserve">رزرو تلفنی </span>
                                 <svg
-                                  width="21"
+                                width="21"
                                   height="15"
                                   viewBox="0 0 21 15"
                                   fill="none"
                                   xmlns="http://www.w3.org/2000/svg"
+                                  class="airplain-logo"
                                 >
                                   <path
                                     d="M-2.15182e-07 10.0772L1.02953 10.0731L3.15812 8.26262L8.85266 8.68188L6.01892 15L7.54613 14.9801L12.9829 9.00829C19.0002 9.16035 21 7.46789 21 7.46789C21 7.46789 19.0145 5.78834 13.0092 5.97983L7.65093 0.00750508L6.08955 6.87491e-07L8.83577 6.31148L3.13813 6.74952L1.04805 4.92978L0.0185249 4.9348L0.604465 7.43035L-2.15182e-07 10.0772Z"
@@ -420,9 +429,12 @@ $query_cat = new WP_Query($args);
                                   />
                                 </svg>
                               </p>
+                             
+                              <div class="number-section">
                               <p class="hotel-box__body__left-reserve-number">
                                 ۰۲۶ - ۳۶۱۴۷
                               </p>
+                              </div>
                             </a>
                           </div>
                         </div>
