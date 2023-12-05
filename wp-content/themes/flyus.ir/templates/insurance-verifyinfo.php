@@ -5,6 +5,34 @@
 
 if(isset($_POST["fname"]))
     $name = $_POST['fname'];
+    
+if(isset($_POST["lastname"]))
+    $lastname = $_POST['lastname'];
+
+if(isset($_POST["latin-name"]))
+    $latinName = $_POST['latin-name'];
+
+if(isset($_POST["latin-lastname"]))
+    $latinLastname = $_POST['latin-lastname'];
+
+if(isset($_POST["birthday"]))
+    $birthday = $_POST['birthday'];
+
+if(isset($_POST["persian-birthday"]))
+    $persianBirthday = $_POST['persian-birthday'];
+
+if(isset($_POST["passportNumber"]))
+    $passportNumber = $_POST['passportNumber'];
+
+    
+if(isset($_POST["national-Code"]))
+$nationalCode = $_POST['national-Code'];
+
+
+if(isset($_POST["visa-type"]))
+    $visaType = $_POST['visa-type'];
+
+
 ?>
 <p>نام
     <span><?php  echo $name; ?></span>
@@ -367,21 +395,21 @@ if(isset($_POST["fname"]))
                         <table class="secound-table">
                             <thead class="secound-table-head">
                                 <tr>
-                                    <th>بازه سنی</th>
                                     <th>نام و نام خانوادگی</th>
-                                    <th>جنسیت</th>
+                                    <th>تاریخ تولد</th>
                                     <th>شماره پاسپورت</th>
-                                    <th>تاریخ تولد میلادی</th>
+                                    <th>کد ملی</th>
+                                    <th>بازه سنی</th>
                                     <th>قیمت</th>
                                 </tr>
                             </thead>
                            <tbody>
                             <tr>
+                                <td><?php echo $name.' '.$lastname ?></td>
+                                <td><?php echo $birthday ?></td>
+                                <td><?php echo $passportNumber ?></td>
+                                <td><?php echo $nationalCode ?></td>
                                 <td>13 تا 65 سال</td>
-                                <td>saleh rezaeian</td>
-                                <td>مرد</td>
-                                <td>5643548643</td>
-                                <td>1/2/2000</td>
                                 <td>30125434ریال</td>
                             </tr>
                            </tbody>

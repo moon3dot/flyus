@@ -470,25 +470,25 @@ if($_SESSION['age_76'] > 0)
                                         <div class="col-12 col-md-6">
                                             <div class="visa-payment__info-form--input">
                                                 <label for="name">تاریخ تولد شمسی</label>
-                                                <input type="text" name="" id="persian-birthday">
+                                                <input type="text" name="persian-birthday" id="persian-birthday">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="visa-payment__info-form--input">
                                                 <label for="name">شماره پاسپورت </label>
-                                                <input type="text" name="" id="passport-number">
+                                                <input type="text" name="passportNumber" id="passport-number">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="visa-payment__info-form--input">
                                                 <label for="name">کد ملی</label>
-                                                <input type="text" name="" id="national-code">
+                                                <input type="text" name="national-Code" id="national-code">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="visa-payment__info-form--input">
                                                 <label for="name">نوع ویزا</label>
-                                                <input type="text" name="" id="visa-type">
+                                                <input type="text" name="visa-type" id="visa-type">
                                             </div>
                                         </div>
                                     </div>
