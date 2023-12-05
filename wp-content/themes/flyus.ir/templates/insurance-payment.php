@@ -413,7 +413,7 @@ if($_SESSION['age_76'] > 0)
         <section class="insurance-form">
             <div class="container">
                 <div class="insurance-form__wrapper">
-                    <form>
+                    <form action="/insurance-verifyinfo" method="post">
                         <input type="hidden" value="<?php  echo $totalPrice?>">
                         <div class="insurance-header__form">
 
@@ -440,31 +440,31 @@ if($_SESSION['age_76'] > 0)
                                         <div class="col-12 col-md-6">
                                             <div class="visa-payment__info-form--input">
                                                 <label for="name">نام</label>
-                                                <input type="text" name="" id="name">
+                                                <input type="text" name="fname" id="name">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="visa-payment__info-form--input">
                                                 <label for="name">نام خانوادگی</label>
-                                                <input type="text" name="" id="lastname">
+                                                <input type="text" name="lastname" id="lastname">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="visa-payment__info-form--input">
                                                 <label for="name">نام (لاتین)</label>
-                                                <input type="text" name="" id="latin-name">
+                                                <input type="text" name="latin-name" id="latin-name">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="visa-payment__info-form--input">
                                                 <label for="name">نام خانوادگی(لاتین)</label>
-                                                <input type="text" name="" id="latin-lastname">
+                                                <input type="text" name="latin-lastname" id="latin-lastname">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="visa-payment__info-form--input">
                                                 <label for="name">تاریخ تولد میلادی</label>
-                                                <input type="text" name="" id="birthday">
+                                                <input type="text" name="birthday" id="birthday">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
