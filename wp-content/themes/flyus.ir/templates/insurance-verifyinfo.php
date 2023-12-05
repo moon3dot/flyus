@@ -26,14 +26,24 @@ if(isset($_POST["passportNumber"]))
 
     
 if(isset($_POST["national-Code"]))
-$nationalCode = $_POST['national-Code'];
+    $nationalCode = $_POST['national-Code'];
 
 
 if(isset($_POST["visa-type"]))
     $visaType = $_POST['visa-type'];
 
 if(isset($_POST["totalPrice"]))
-    $visaType = $_POST['totalPrice'];
+    $totalPrice = $_POST['totalPrice'];
+
+if(isset($_POST["sendTitle"]))
+    $sendTitle = $_POST['sendTitle'];
+
+if(isset($_POST["sendPrice"]))
+    $sendPrice = $_POST['sendPrice'];
+
+if(isset($_POST["sendCoverLimit"]))
+    $sendCoverLimit = $_POST['sendCoverLimit'];
+
 
 
 ?>
@@ -356,7 +366,7 @@ function checkedUser() {
                             بیمه گر
                         </td>
                         <td>
-                            سامان
+                        <?php echo  $sendPrice ?>
                         </td>
                     </tr>
                     <tr>
@@ -364,7 +374,7 @@ function checkedUser() {
                             مدت بیمه
                         </td>
                         <td>
-                            9تا 10 روز
+                            ----
                         </td>
                     </tr>
                     <tr>
@@ -372,7 +382,7 @@ function checkedUser() {
                             مقصد
                         </td>
                         <td>
-                            امارات متحده عربی
+                            -----
                         </td>
                     </tr>
                     <tr> 
@@ -380,7 +390,7 @@ function checkedUser() {
                             تعهد مالی
                         </td>
                         <td>
-                            یورو 50.0000
+                            یورو <?php echo  $sendCoverLimit ?>
                         </td>
                     </tr>
                     <tr> 

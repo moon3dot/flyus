@@ -65,6 +65,10 @@ if($_SESSION['age_71'] > 0)
 if($_SESSION['age_76'] > 0)
     $totalPrice += ($_SESSION['age_76'] * $tempPrice);
 
+    //set value for form
+    $sendTitle = $plans[0]['title'];
+    $sendPrice = $plans[0]['price'];
+    $sendCoverLimit = $plans[0]['coverLimit'];
 ?>
 
     <!-- main  -->
@@ -414,7 +418,10 @@ if($_SESSION['age_76'] > 0)
             <div class="container">
                 <div class="insurance-form__wrapper">
                     <form action="/insurance-verifyinfo" method="post">
-                        <input type="hidden" value="<?php  echo $totalPrice?>" name="totalPrice">
+                        <input type="hidden" value="<?php echo $totalPrice?>" name="totalPrice">
+                        <input type="hidden" value="<?php echo $sendTitle ?>" name="sendTitle">
+                        <input type="hidden" value="<?php echo $sendPrice ?>" name="sendPrice">
+                        <input type="hidden" value="<?php echo $sendCoverLimit ?>" name="sendCoverLimit">
                         <div class="insurance-header__form">
 
                             <div class="visa-payment__info-form--title">
