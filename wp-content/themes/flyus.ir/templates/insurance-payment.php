@@ -377,7 +377,7 @@ if($_SESSION['age_76'] > 0)
                             </p>
                         </div>
                         <div class="insurance__head-price">
-                            <bdi class="insurance__head-price-item"> <?php echo $plans[0]['price'] ?>  </bdi>
+                            <bdi class="insurance__head-price-item"> <?php echo $plans[0]['price'] ?>  ریال</bdi>
                             <button class="insurance__details-price-button">تغییر بیمه نامه</button>
 							<?php if ( $_SESSION['age_12'] > 0 ) { ?>
                                 <span class="insurance__head-price-detail">
@@ -507,7 +507,7 @@ if($_SESSION['age_76'] > 0)
                             <div class="insurance-form__btns-detail">
                                 <span class="insurance-form__price"><?php 
                                 echo $totalPrice;
-                                ?></span>
+                                ?> ریال</span>
                                 <button type="submit" class="insurance-form__submit">ادامه خرید</button>
                             </div>
                         </div>
