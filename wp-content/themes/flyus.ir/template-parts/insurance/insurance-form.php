@@ -44,7 +44,7 @@ session_unset();
             </div>
 
             <div class="insurance-form__body">
-                <form id="insurance-form" action="/select-insurance" method="post" >
+                <form id="insurance-form" action="/select-insurance"  method="post" >
 
                     <input id="single-insurance-destination-code" name="single-insurance-destination-code" type="hidden">
                     <input id="single-travel-time" name="single-travel-time" type="hidden">
@@ -105,8 +105,8 @@ session_unset();
 
 													<?php
 												}
+                                                
 												?>
-
 
                                             </ul>
                                         </div>

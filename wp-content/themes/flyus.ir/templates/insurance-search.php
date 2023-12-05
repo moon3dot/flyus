@@ -5,7 +5,7 @@
 
 if ( ! empty( $_POST ) ) {
 
-	session_unset();
+	session_start();
 	$_SESSION['age_12'] = $_POST['server-12-result'];
 	$_SESSION['age_13'] = $_POST['server-13-result'];
 	$_SESSION['age_66'] = $_POST['server-66-result'];
@@ -17,7 +17,7 @@ if ( ! empty( $_POST ) ) {
 
 	$_SESSION['single_insurance_destination_name'] = $_POST['single_insurance_destination_name'];
 	$_SESSION['single_insurance_destination_code'] = $_POST['single-insurance-destination-code'];
-
+    
 	$_SESSION['single_travel_time'] = $_POST['single-travel-time'];
 
 }
