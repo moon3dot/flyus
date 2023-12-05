@@ -3,11 +3,6 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-#ignore the assets folder
-assets/audios/
-assets/img/
-assets/video
-
 #ignore the wp-content folder
 wp-content/languages/
 wp-content/plugins/
