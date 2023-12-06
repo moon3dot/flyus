@@ -118,6 +118,13 @@ $query_cat = new WP_Query($args);
                             $args_tour =  array(
                                 'post_type' => 'tours',
                                 'post_status' => 'publish',
+                                'tax_query' => array(
+                                  array(
+                                           'taxonomy' => 'tourcat',
+                                           'field' => 'term_id',
+                                           'terms'    => $cat->term_id
+                                       ),
+                                   ),
                                   
                             );    
                             $query_tour = new WP_Query($args_tour);
