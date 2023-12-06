@@ -41,10 +41,6 @@ if(isset($_POST["sendPrice"]))
 
 if(isset($_POST["sendCoverLimit"]))
     $sendCoverLimit = $_POST['sendCoverLimit'];
-   
-   
-    
-   
 ?>
 
 <?php 
@@ -422,7 +418,36 @@ function checkedUser() {
                         <td><?php echo $birthday ?></td>
                         <td><?php echo $passportNumber ?></td>
                         <td><?php echo $nationalCode ?></td>
-                        <td>13 تا 65 سال</td>
+                        <td>
+                            
+<?php if ( $_SESSION['age_12'] > 0 ) { ?>
+                                <span class="insurance__head-price-detail">
+                1 تا 12 سال (<?php echo $_SESSION['age_12'] ?>نفر)
+              </span>
+							<?php } ?>
+							<?php if ( $_SESSION['age_13'] > 0 ) { ?>
+                                <span class="insurance__head-price-detail">
+                13 تا 66 سال (<?php echo $_SESSION['age_13'] ?>نفر)
+              </span>
+							<?php } ?>
+							<?php if ( $_SESSION['age_66'] > 0 ) { ?>
+                                <span class="insurance__head-price-detail">
+                66 تا 71 سال (<?php echo $_SESSION['age_66'] ?>نفر)
+              </span>
+							<?php } ?>
+							<?php if ( $_SESSION['age_71'] > 0 ) { ?>
+                                <span class="insurance__head-price-detail">
+                71 تا 76 سال (<?php echo $_SESSION['age_71'] ?>نفر)
+              </span>
+							<?php } ?>
+							<?php if ( $_SESSION['age_76'] > 0 ) { ?>
+                                <span class="insurance__head-price-detail">
+                76 تا 81 سال (<?php echo $_SESSION['age_76'] ?>نفر)
+              </span>
+							<?php } ?>
+
+
+                        </td>
                         <td><?php echo $totalPrice ?>ریال</td>
                         </tr>
                     </tbody>
@@ -438,10 +463,12 @@ function checkedUser() {
                 <table class="table-price">
                     <tr>
                         <td>مبلغ قابل پرداخت</td>
-                        <td>72787 ریال</td>
+                        <td><?php echo $totalPrice ?>ریال</td>
                     </tr>
                 </table>
-                <button class="footer__newsletter-submit" style="margin-top: 3rem;">پرداخت آنلاین</button>
+                <form action="/payment-insurance">
+                    <button class="footer__newsletter-submit" style="margin-top: 3rem;" >پرداخت آنلاین</button>
+                </form>
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@ add_theme_support( 'wc-product-gallery-slider' );
 //add file css and js
 function flyus_scripts()
 {
-    wp_enqueue_style('main', THEME_STYLES . '/main.css', '1.1.3');
+    wp_enqueue_style('main', THEME_STYLES . '/main.css', '1.1.8');
     wp_enqueue_style('style', get_stylesheet_uri(),'1.1.0');
 
 
@@ -77,7 +77,7 @@ function tours_meta( $post_id, $post ) {
 
 	// bail out if this is not an event item
 	if ( 'tours' !== $post->post_type ) {
-		return;
+		return ("post type ?!");
 	}
 
 	// ... do override stuff
@@ -112,8 +112,3 @@ require_once THEME_INCLUDES . '/ajax.php';
 require_once THEME_INCLUDES . '/settings.php';
 require_once THEME_INCLUDES . '/metabox.php';
 require_once THEME_INCLUDES . '/ajax-insurance/travel-insurance.php';
-
-
-
-
-

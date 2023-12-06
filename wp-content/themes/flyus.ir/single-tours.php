@@ -48,32 +48,89 @@
 					<?php $hotel = get_post_meta( get_the_ID(), 'fly_tour_hotel_meta', true ); ?>
                     <div class="col-12 col-lg-9">
 
-                        <section class="tour-list__info">
-                            <div class="tour-list__info-title">
-								<?php if ( ! empty( $hotel[0]['fly_tour_hotel_name_meta'] ) ) { ?>
-                                    <h2> نام هتل: <?php echo $hotel[0]['fly_tour_hotel_name_meta'] ?></h2>
-
-								<?php } ?>
-
-								<?php if ( ! empty( $hotel[0]['fly_tour_detail_meta'] ) ) { ?>
-                                    <h2> <?php echo $hotel[0]['fly_tour_detail_meta'] ?></h2>
-								<?php } ?>
-                                <h2>مشاهده هتل روی نقشه</h2>
-                                <h2>تصویر هتل</h2>
-                            </div>
-
-
-                            <div class="tour-list__info-desc">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="tour-list__info-desc_list">
-											<?php the_content(); ?>
-                                        </div>
+                    <!-- review  -->
+                    <section class="tour-detail-infos">
+                            <div class="tour-detail-wrapper">
+                                <span class="tour-detail__badge">بررسی کلی</span>
+                                <div class="tour-detail__items">
+                                    <div class="tour-detail__item primary">
+                                        <span>
+                                        <?php if ( ! empty( $hotel[0]['fly_tour_hotel_name_meta'] ) ) { ?>
+                                            نام هتل:<?php echo $hotel[0]['fly_tour_hotel_name_meta'] ?>
+                                            <?php } ?>
+                                        </span>
                                     </div>
+                                    <div class="tour-detail__item primary">
+                                        <svg width="16" height="18" viewBox="0 0 16 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_1631_19)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M0 6.5C0 6.22386 0.144627 6 0.323033 6H15.677C15.8554 6 16 6.22386 16 6.5C16 6.77614 15.8554 7 15.677 7H0.323033C0.144627 7 0 6.77614 0 6.5Z"
+                                                    fill="#094899" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M4 10.3235C4 10.1448 4.13928 10 4.31109 10H4.31878C4.49059 10 4.62987 10.1448 4.62987 10.3235C4.62987 10.5022 4.49059 10.647 4.31878 10.647H4.31109C4.13928 10.647 4 10.5022 4 10.3235ZM7.68891 10.3235C7.68891 10.1448 7.82819 10 8 10H8.00769C8.1795 10 8.31878 10.1448 8.31878 10.3235C8.31878 10.5022 8.1795 10.647 8.00769 10.647H8C7.82819 10.647 7.68891 10.5022 7.68891 10.3235ZM11.3701 10.3235C11.3701 10.1448 11.5094 10 11.6812 10H11.6889C11.8607 10 12 10.1448 12 10.3235C12 10.5022 11.8607 10.647 11.6889 10.647H11.6812C11.5094 10.647 11.3701 10.5022 11.3701 10.3235ZM4 13.6765C4 13.4978 4.13928 13.353 4.31109 13.353H4.31878C4.49059 13.353 4.62987 13.4978 4.62987 13.6765C4.62987 13.8552 4.49059 14 4.31878 14H4.31109C4.13928 14 4 13.8552 4 13.6765ZM7.68891 13.6765C7.68891 13.4978 7.82819 13.353 8 13.353H8.00769C8.1795 13.353 8.31878 13.4978 8.31878 13.6765C8.31878 13.8552 8.1795 14 8.00769 14H8C7.82819 14 7.68891 13.8552 7.68891 13.6765ZM11.3701 13.6765C11.3701 13.4978 11.5094 13.353 11.6812 13.353H11.6889C11.8607 13.353 12 13.4978 12 13.6765C12 13.8552 11.8607 14 11.6889 14H11.6812C11.5094 14 11.3701 13.8552 11.3701 13.6765Z"
+                                                    fill="#094899" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M1.19539 2.15019C1.97504 1.38001 3.08058 1 4.39121 1H11.6166C12.9309 1 14.0368 1.37986 14.8148 2.15051C15.5951 2.92353 16.004 4.04865 16 5.45027C16 5.45009 16 5.45046 16 5.45027V13.5418C16 14.9434 15.589 16.0703 14.808 16.8451C14.0293 17.6177 12.9236 18 11.6087 18H4.39121C3.07866 18 1.97243 17.6104 1.19316 16.8256C0.412291 16.0391 0 14.8963 0 13.4747V5.44981C0 4.04767 0.413271 2.92281 1.19539 2.15019ZM1.63634 2.63222C1.00935 3.25159 0.639999 4.18537 0.639999 5.44981V13.4747C0.639999 14.7617 1.01033 15.7152 1.63858 16.348C2.26841 16.9824 3.19779 17.3349 4.39121 17.3349H11.6087C12.8078 17.3349 13.7376 16.9877 14.3661 16.3641C14.9923 15.7428 15.36 14.8068 15.36 13.5418V5.44981V5.44879C15.3637 4.18409 14.9979 3.25077 14.3732 2.6319C13.7459 2.01056 12.8162 1.66507 11.6166 1.66507H4.39121C3.19587 1.66507 2.26581 2.01041 1.63634 2.63222Z"
+                                                    fill="#094899" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M11.5 0C11.7761 0 12 0.124649 12 0.278412V2.72159C12 2.87535 11.7761 3 11.5 3C11.2239 3 11 2.87535 11 2.72159V0.278412C11 0.124649 11.2239 0 11.5 0Z"
+                                                    fill="#094899" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M4.5 0C4.77614 0 5 0.124649 5 0.278412V2.72159C5 2.87535 4.77614 3 4.5 3C4.22386 3 4 2.87535 4 2.72159V0.278412C4 0.124649 4.22386 0 4.5 0Z"
+                                                    fill="#094899" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_1631_19">
+                                                    <rect width="16" height="18" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
 
+                                        <span>
+                                        <?php if ( ! empty( $hotel[0]['fly_tour_detail_meta'] ) ) { ?>
+                                            مدت اقامت : <?php echo $hotel[0]['fly_tour_detail_meta'] ?>
+                                            <?php } ?>
+                                        </span>
+                                    </div>
+                                    <div class="tour-detail__item primary">
+                                        <svg width="16" height="19" viewBox="0 0 16 19" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_1630_16)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10.3622 8.27539C10.3622 6.96318 9.30873 5.8999 8.00871 5.8999C6.70964 5.8999 5.65625 6.96318 5.65625 8.27539C5.65625 9.58661 6.70964 10.6499 8.00871 10.6499C9.30873 10.6499 10.3622 9.58661 10.3622 8.27539Z"
+                                                    stroke="#094899" stroke-width="0.8" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M7.99952 18.05C5.27197 18.05 0.941162 13.2607 0.941162 8.16866C0.941162 4.18229 4.10079 0.949951 7.99952 0.949951C11.8982 0.949951 15.0588 4.18229 15.0588 8.16866C15.0588 13.2607 10.728 18.05 7.99952 18.05Z"
+                                                    stroke="#094899" stroke-width="0.8" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_1630_16">
+                                                    <rect width="16" height="19" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                        <span>
+                                        <?php if ( ! empty( $hotel[0]['fly_tour_detail_meta'] ) ) { ?>
+                                            مشاهده هتل روی نقشه<?php echo $hotel[0]['fly_tour_detail_meta'] ?>
+                                            <?php } ?>
+                                        </span>
+                                    </div>
+                                    <div class="tour-detail__item secondary">
+                                        <span>
+                                        <?php if ( ! empty( $hotel[0]['fly_tour_detail_meta'] ) ) { ?>
+                                            ستاره هتل : <?php echo $hotel[0]['fly_tour_detail_meta'] ?>
+                                            <?php } ?>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </section>
+
+                    <!-- end review -->
 
                         <section class="reason">
                             <div class="line-bg">
@@ -89,7 +146,7 @@
 
                                 <div class="box-container">
 									<?php $services = get_post_meta( get_the_ID(), 'fly_tour_services_meta', true );
-									$count          = 1;
+									$count = 1;
 									if ( ! empty( $services ) ) {
 										foreach ( $services as $item ) { ?>
                                             <article class="reason-box">
