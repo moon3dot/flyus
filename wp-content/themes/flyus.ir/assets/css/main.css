@@ -5792,7 +5792,7 @@ aside input[type="checkbox"]:checked:after {
     align-items: center;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between;
+    justify-content: center;
     color: var(--black);
     font-size: 1rem;
     -ms-flex-wrap: wrap;
@@ -14013,4 +14013,124 @@ imsurance payment
     margin: 1rem;
   }
   
+  /* new feat */
+
+  .tour-detail-wrapper{
+    position: relative;
+   
+    border: 0.1rem solid var(--border-color);
+    border-radius: 1.2rem;
+    padding: 4rem 1rem 1rem 1rem;
+  }
   
+  .tour-detail__badge{
+    position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--secondary-color);
+      color: var(--white);
+      border-radius: 0 1.2rem;
+      padding: 0.2rem 1rem;
+      font-size: 1.6rem;
+      width: 81px;
+      height: 31px;
+  }
+  
+
+
+  .tour-detail__items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 2rem 0 2rem;
+    gap: 1rem;
+    width: auto;
+  }
+  
+  .tour-detail__items >div{
+    flex: 0 0 auto;
+  }
+  
+  .pink-airplain{
+    margin-left: -0.1rem;
+  }
+  
+  .tour-detail__item{
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: .5rem; */
+    transition: all .2s ease;
+  }
+  
+  .tour-detail__item.primary{
+    border: .1rem solid var(--main-color);
+    color: var(--main-color);
+    width: 236px;
+    height: 31px;
+  }
+  .tour-detail__item.primary-map{
+    border: .1rem solid var(--main-color);
+    color: var(--main-color);
+    width: 209px;
+    height: 31px;
+  }
+  .tour-detail__item.primary-map:hover{
+    background-color: var(--main-color);
+    color: var(--white);
+  }
+  .tour-detail__item.primary-btn{
+      border: .1rem solid var(--main-color);
+      color: var(--main-color);
+      width: 160px;
+      height: 31px;
+
+  }
+  .tour-detail__item.primary-btn:hover{
+    background-color: var(--main-color);
+    color: var(--white);
+  }
+  .tour-detail__item.primary:hover{
+    background-color: var(--main-color);
+    color: var(--white);
+  }
+  
+  .tour-detail__item.secondary{
+    border: .1rem solid var(--secondary-color);
+    color: var(--secondary-color);
+    width: 160px;
+    height: 31px;
+  }
+  
+  .tour-detail__item.secondary:hover{
+    background-color: var(--secondary-color);
+    color: var(--white);
+  }
+  
+  
+  .tour-list__content {
+    margin-top: 3.3rem;
+  }
+  
+  @media(max-width: 1200px){
+    .tour-detail__items >div {
+      width: 40%;
+  }
+  }
+  @media(max-width: 768px){
+    .tour-detail__items >div {
+      width: 47%;
+  }
+  }
+  @media(max-width: 576px){
+    .tour-detail__items >div {
+      width: 98%;
+  }
+  }
+
+  /* new feat end */

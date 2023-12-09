@@ -11,7 +11,7 @@ add_theme_support( 'wc-product-gallery-slider' );
 //add file css and js
 function flyus_scripts()
 {
-    wp_enqueue_style('main', THEME_STYLES . '/main.css', '1.1.8');
+    wp_enqueue_style('main', THEME_STYLES . '/main.css', '1.2.1');
     wp_enqueue_style('style', get_stylesheet_uri(),'1.1.0');
 
 
@@ -86,7 +86,10 @@ function tours_meta( $post_id, $post ) {
     $star=$hotel[0]['fly_tour_hotel_star_meta'];
     if(!empty($name)){ update_post_meta( $post_id, 'hotel_name', sanitize_text_field( $name ) );}
     if(!empty($star)){ update_post_meta( $post_id, 'hotel_star', sanitize_text_field( $star ) );}
-
+    
+    $infoFly = get_post_meta( $post_id ,'fly_info_tuor_meta', true );
+    $fly_tours_name_airline_company_one = $infoFly[0]['fly_tours_name_airline_company_one_meta'];
+    if(!empty($fly_tours_name_airline_company_one)){ update_post_meta( $post_id, 'fly_tours_name_airline_company_one', sanitize_text_field($fly_tours_name_airline_company_one));}
 }
 
 

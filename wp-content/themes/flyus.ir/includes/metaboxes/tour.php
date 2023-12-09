@@ -122,11 +122,8 @@ function cmb2_tour_metaboxes()
 
             $cmb_tour->add_group_field( $infoFly, array(
               'name' => 'اسم شرکت هواپیمایی رفت',
-              'id'   => 'fly_tour_name_airline_company_one_meta',
+              'id'   => 'fly_tours_name_airline_company_one_meta',
               'type'    => 'text',
-               'desc' => '
-             ترکیش ایر لاین
-             ',
               ) );
 
             $cmb_tour->add_group_field( $infoFly, array(
@@ -156,7 +153,7 @@ function cmb2_tour_metaboxes()
                  ) );
 
             $cmb_tour->add_group_field( $infoFly, array(
-                'name' => ' مبدا پرواز و ساعت',
+                'name' => ' مقصد پرواز و ساعت',
                 'id'   => 'Destination_flight_and_time_one_meta',
                 'type'    => 'text',
                 'desc' => '
@@ -230,7 +227,7 @@ function cmb2_tour_metaboxes()
                    ) );
   
               $cmb_tour->add_group_field( $infoFly, array(
-                  'name' => '  مبدا پرواز و ساعت برگشت',
+                  'name' => '  مقصد پرواز و ساعت برگشت',
                   'id'   => 'Destination_flight_and_time_two_meta',
                   'type'    => 'text',
                   'desc' => '
@@ -422,15 +419,6 @@ function cmb2_tour_metaboxes()
           // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
       ),
   ) );
-
-  $cmb_tour->add_group_field( $tourDescription, array(
-    'name' => 'مدارک',
-    'id'   => 'documents_tour_description_meta',
-    'type'    => 'text',
-    'desc' => '
-    توضیحات             
-    ',
-    ) );
 
     $cmb_tour->add_group_field( $tourDescription, array(
         'name' => 'ساعت ورود',
