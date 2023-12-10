@@ -276,7 +276,7 @@
 
             <!-- sidebar  -->
             <aside class="sidebar">
-              <form action="" class="visa__form" id="visa-form">
+              <form action="/visa-form" class="visa__form" id="visa-form">
                 <select class="visa__type">
                   <option value="-1">نوع ویزا</option>
                   <option value="">ویزای لورم ایپسوم</option>
@@ -371,5 +371,4 @@
           </div>
         </div>
       </section>
-    </main>
 <?php get_footer(); ?>

@@ -414,7 +414,32 @@ function cmb2_visa_metaboxes()
 
 
 
+    $paragraphs_visa = $cmb_visa->add_field( array(
+        'id'          => 'fly_visa_paragraphs_meta',
+        'type'        => 'group',
+        'repeatable'  => true, // use false if you want non-repeatable group
+        'options'     => array(
+            'group_title'       => __( 'پاراگراف های پایین', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+            'sortable'          => false,
+            'closed'         => true, // true to have the groups closed by default
+            'add_button'        => __( 'افزودن ', 'cmb2' ),
+            'remove_button'     => __( 'حذف ', 'cmb2' ),
+            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+        ),
+    ) );
 
+    $cmb_visa->add_group_field( $paragraphs_visa, array(
+        'name' => 'عنوان',
+        'id'   => 'fly_visa_paragraph_titl_meta',
+        'type'    => 'text',
+
+    ) );
+    $cmb_visa->add_group_field( $paragraphs_visa, array(
+        'name' => 'توضیحات',
+        'id'   => 'fly_visa_paragraph_descs_meta',
+        'type'    => 'textarea',
+        
+    ) );
 
 }
 
