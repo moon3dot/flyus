@@ -70,86 +70,8 @@
                         <span>لطفا اطلاعات اولیه را برای ثبت درخواست وارد نمایید.</span>
                     </div>
 
-                    <!-- <form>
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-                                <div class="visa-payment__info-form--input">
-                                    <label for="name">نام (لاتین)</label>
-                                    <input type="text" name="" id="name">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="visa-payment__info-form--input">
-                                    <label for="lastname">نام خانوادگی (لاتین)</label>
-                                    <input type="text" name="" id="lastname">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="visa-payment__info-form--input">
-                                    <label for="number">شماره موبایل</label>
-                                    <input type="text" name="" id="number">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="visa-payment__info-form--input">
-                                    <label for="email">ایمیل</label>
-                                    <input type="text" name="" id="email">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="visa-payment__info-form--input">
-                                    <label for="visa-date">انقضای پاسپورت</label>
-                                    <input type="text" name="" id="visa-date">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="visa-payment__info-form--input">
-                                    <label for="visa-detail">شماره پاسپورت</label>
-                                    <input type="text" name="" id="visa-detail">
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="visa-payment__info-form--document">
-                            <h3>
-                                آپلود مدارک
-                            </h3>
-                            <span>
-                                لطفا اسکن صفحه اول گذرنامه خود را آپلود کنید
-                            </span>
-
-                            <div class="visa-payment__info-form-uploader">
-                                <input  type="file" id="upload" hidden />
-                                <label for="upload">
-                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M20.4651 32H11.5349C3.45302 32 0 28.547 0 20.4651V11.5349C0 3.45302 3.45302 0 11.5349 0H18.9767C19.587 0 20.093 0.506047 20.093 1.11628C20.093 1.72651 19.587 2.23256 18.9767 2.23256H11.5349C4.67349 2.23256 2.23256 4.67349 2.23256 11.5349V20.4651C2.23256 27.3265 4.67349 29.7674 11.5349 29.7674H20.4651C27.3265 29.7674 29.7674 27.3265 29.7674 20.4651V13.0233C29.7674 12.413 30.2735 11.907 30.8837 11.907C31.494 11.907 32 12.413 32 13.0233V20.4651C32 28.547 28.547 32 20.4651 32Z"
-                                            fill="#094899" />
-                                        <path
-                                            d="M30.8967 14H25.0011C19.9603 14 18 12.0397 18 6.99893V1.10326C18 0.661087 18.2653 0.24839 18.678 0.0862592C19.0907 -0.0906107 19.5623 0.0125636 19.8866 0.322086L31.6779 12.1134C31.9874 12.4229 32.0906 12.9093 31.9137 13.322C31.7369 13.7347 31.3389 14 30.8967 14ZM20.2109 3.77105V6.99893C20.2109 10.8016 21.1984 11.7892 25.0011 11.7892H28.229L20.2109 3.77105Z"
-                                            fill="#094899" />
-                                        <path
-                                            d="M17.8 19H8.2C7.544 19 7 18.32 7 17.5C7 16.68 7.544 16 8.2 16H17.8C18.456 16 19 16.68 19 17.5C19 18.32 18.456 19 17.8 19Z"
-                                            fill="#094899" />
-                                        <path
-                                            d="M14.7727 25H8.22727C7.55636 25 7 24.32 7 23.5C7 22.68 7.55636 22 8.22727 22H14.7727C15.4436 22 16 22.68 16 23.5C16 24.32 15.4436 25 14.7727 25Z"
-                                            fill="#094899" />
-                                    </svg>
-                                    <span>آپلود مدارک</span>
-
-                                </label>
-                            </div>
-
-                            <p class="visa-payment__info-form--document-condition">
-                                حجم مجاز: 10mg
-                            </p>
-                            <p class="visa-payment__info-form--document-condition">
-                                حجم مجاز: 10MB پسوندهای مجاز: png / jpg / jpeg / pdf
-                            </p>
-
-                            <ul class="visa-payment__info-form--document-desc">
+                    <?php echo do_shortcode("[gravityform id='1' title='true' description='true']") ?>
+                    <ul class="visa-payment__info-form--document-desc">
                                 <li>
                                     <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -190,16 +112,6 @@
                                 </li>
                             </ul>
 
-                        </div>
-
-                        <div class="visa-payment__info-form--submit">
-                            <button type="submit">
-                                ثبت درخواست
-                            </button>
-                        </div>
-
-                    </form> -->
-                  
                 </div>
             </div>
             <div class="visa-payment__info-form right shadow shadow-right"></div>
