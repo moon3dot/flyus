@@ -115,10 +115,13 @@
                                     </clipPath>
                                 </defs>
                             </svg>
-                            <?php if ( ! empty( $hotel[0]['fly_tour_hotel_map_meta'] ) ) { ?>
-                            <span>
-                                مشاهده هتل روی نقشه<?php  $hotel[0]['fly_tour_hotel_map_meta'] ?>
-                            </span>
+                            <?php if ( ! empty( $hotel[0]['fly_tour_hotel_map_meta'] ) ) { 
+                                $Url_googlemap = $hotel[0]['fly_tour_hotel_map_meta'] 
+                                ?>
+                                
+                                <a href="<?php  echo $Url_googlemap ?>">
+                                مشاهده هتل روی نقشه
+                            </a>
                             <?php } ?>
                         </div>
                         <div class="tour-detail__item secondary">
@@ -146,7 +149,10 @@
                 <?php $hotel = get_post_meta( get_the_ID(), 'fly_info_tuor_meta', true ); ?>
                     <div class="row">
                         <div class="col-12 col-sm-9">
-                            <div class="flight-timing">
+                            <div class="flight-timing" style="
+    display: flex;
+    justify-content: center;
+">
                                 <!-- تایم کلی پرواز -->
                                 <?php if ( ! empty( $hotel[0]['fly_tour_time_flight_one_meta'] ) ) { ?>
                                 <span class="flight-timing__item flight-timing__item-all"><?php echo $hotel[0]['fly_tour_time_flight_one_meta'] ?></span>
@@ -292,43 +298,8 @@
                         </div>
                     </div>
                 </div>
-
-             </div>            
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-3">
-            <aside class="tour-list__aside">
-                <div class="tour-list__aside-buttons">
-                    <div class="tour-list__aside-buttons--item">
-                        <a class="tour-list__aside-buttons--consultation" href="#">اطلاعات تماس</a>
-                    </div>
-                    <div class="tour-list__aside-buttons--item">
-                        <a class="tour-list__aside-buttons--reservation" href="#">
-                            <span class="tour-list__aside-buttons--reservation-text">تماس جهت مشاوره و خرید</span>
-                            <span class="tour-list__aside-buttons--reservation-item">۰۲۶-۳۶۱۴۷</span>
-                        </a>
-
-                    </div>
-                    <div class="tour-list__aside-buttons--item">
-                        <h3 style="text-align: right;">قیمت هر نفر:</h3>
-                        <a class="tour-list__aside-buttons--consultation" href="#"> 33.280.000 تومان</a>
-                    </div>
-
-                    <div class="tour-list__aside-buttons--item">
-                        <a class="tour-list__aside-buttons--destination" href="#">
-                            <span class="tour-list__aside-buttons--reservation-start">مبدا: تهران</span> <span
-                                class="tour-list__aside-buttons--reservation-end">مقصد: مالدیو</span> </a>
-
-                    </div>
-                </div>
-            </aside>
-        </div>
-
-        </div>
-        </div>
-        <!-- مشاهده جدوال  هزینه ها -->
-        <div class="col-12 col-lg-9">
+                       <!-- مشاهده جدوال  هزینه ها -->
+        <div class="col-12 col-lg-12">
                 <div class="main-title">
                     <h2 class="main-title__heading">مشاهده جدول هزینه ها  </h2>
                     <svg class="main-title__icon" width="13" height="17" viewBox="0 0 13 17" fill="none"
@@ -374,7 +345,7 @@
                 </table>
             </div>
             <!-- خدمات تور-->
-            <div class="col-12 col-lg-9">
+            <div class="col-12 col-lg-12">
                 <div class="main-title">
                     <h2 class="main-title__heading">خدمات تور </h2>
                     <svg class="main-title__icon" width="13" height="17" viewBox="0 0 13 17" fill="none"
@@ -443,7 +414,7 @@
                                     </table>
                                 </div>
                                 <!-- خدمات تور -->
-                               <div class="col-12 col-lg-9">
+                               <div class="col-12 col-lg-12">
                                    <div class="main-title">
                                        <h2 class="main-title__heading">توضیحات تور </h2>
                                        <svg class="main-title__icon" width="13" height="17" viewBox="0 0 13 17" fill="none"
@@ -496,6 +467,60 @@
                                        
                                    </table>
                                </div>
+             </div>            
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-3">
+            <aside class="tour-list__aside">
+                <div class="tour-list__aside-buttons">
+                    <div class="tour-list__aside-buttons--item">
+                        <a class="tour-list__aside-buttons--consultation" href="#">اطلاعات تماس</a>
+                    </div>
+                    <div class="tour-list__aside-buttons--item">
+                        <a class="tour-list__aside-buttons--reservation" href="#">
+                        <?php $hotel = get_post_meta( get_the_ID(), 'fly_tour_hotel_meta', true ); ?>
+                            <span class="tour-list__aside-buttons--reservation-text">تماس جهت مشاوره و خرید</span>
+                            <?php  if(!empty ($hotel[0]['fly_tour_hotel_phonenumber_meta'])) {?>
+                            <span class="tour-list__aside-buttons--reservation-item">
+                                    <?php echo $hotel[0]['fly_tour_hotel_phonenumber_meta'] ?>  
+                                </span>
+                                <?php } ?>
+                        </a>
+
+                    </div>
+                    <div class="tour-list__aside-buttons--item">
+                        <h3 style="text-align: right;">قیمت هر نفر:</h3>
+                        <?php $hotel = get_post_meta( get_the_ID(), 'fly_tour_hotel_meta', true ); ?>
+                        <a class="tour-list__aside-buttons--consultation" href="#">
+                        <?php if(!empty($hotel[0]['fly_tour_hotel_price_meta'])) { ?>
+                                                   <p><?php echo $hotel[0]['fly_tour_hotel_price_meta'] ?> تومان</p>
+                                                    <?php }  ?>
+                        </a>
+                    </div>
+                    <div class="tour-list__aside-buttons--item">
+                        <?php $hotel = get_post_meta( get_the_ID(), 'fly_info_tuor_meta', true ); ?>
+                        <a class="tour-list__aside-buttons--destination" href="#">
+                        <?php if(!empty($hotel[0]['fly_tours_airline_origin_flight'])) { ?>
+                                                   
+                                                   <span class="tour-list__aside-buttons--reservation-start">مبدا: <?php echo $hotel[0]['fly_tours_airline_origin_flight'] ?></span> 
+                                                   <?php }  ?>
+                            
+                            
+                            <?php if(!empty($hotel[0]['fly_tours_airline_Destination_flight'])) { ?>
+                                                   
+                                                   <span class="tour-list__aside-buttons--reservation-end">مقصد: <?php echo $hotel[0]['fly_tours_airline_Destination_flight'] ?></span> 
+                                                   <?php }  ?>
+                        </a>
+
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        </div>
+        </div>
+ 
                                 <!-- gotenberg text & post metabox -->
         <div class="tour-list__content">
             <div class="container">

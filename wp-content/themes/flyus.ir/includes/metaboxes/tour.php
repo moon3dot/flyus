@@ -86,6 +86,18 @@ function cmb2_tour_metaboxes()
         
     ) );
     $cmb_tour->add_group_field(  $hotel_tour, array(
+        'name' => 'قیمت ',
+        'id'   => 'fly_tour_hotel_price_meta',
+        'type'    => 'text',
+        
+    ) );
+    $cmb_tour->add_group_field(  $hotel_tour, array(
+        'name' => 'شماره تماس',
+        'id'   => 'fly_tour_hotel_phonenumber_meta',
+        'type'    => 'text',
+        
+    ) );
+    $cmb_tour->add_group_field(  $hotel_tour, array(
         'name' => 'مدت اقامت',
         'id'   => 'fly_tour_detail_meta',
         'type'    => 'text',
@@ -120,6 +132,16 @@ function cmb2_tour_metaboxes()
             ),
         ) );
 
+        $cmb_tour->add_group_field( $infoFly, array(
+            'name' => 'مقصد',
+            'id'   => 'fly_tours_airline_Destination_flight',
+            'type'    => 'text',
+            ) );
+            $cmb_tour->add_group_field( $infoFly, array(
+                'name' => 'مبدا',
+                'id'   => 'fly_tours_airline_origin_flight',
+                'type'    => 'text',
+                ) );        
             $cmb_tour->add_group_field( $infoFly, array(
               'name' => 'اسم شرکت هواپیمایی رفت',
               'id'   => 'fly_tours_name_airline_company_one_meta',

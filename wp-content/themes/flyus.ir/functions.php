@@ -87,9 +87,9 @@ function tours_meta( $post_id, $post ) {
     if(!empty($name)){ update_post_meta( $post_id, 'hotel_name', sanitize_text_field( $name ) );}
     if(!empty($star)){ update_post_meta( $post_id, 'hotel_star', sanitize_text_field( $star ) );}
     
-    $infoFly = get_post_meta( $post_id ,'fly_info_tuor_meta', true );
-    $fly_tours_name_airline_company_one = $infoFly[0]['fly_tours_name_airline_company_one_meta'];
-    if(!empty($fly_tours_name_airline_company_one)){ update_post_meta( $post_id, 'fly_tours_name_airline_company_one', sanitize_text_field($fly_tours_name_airline_company_one));}
+    // $infoFly = get_post_meta( $post_id ,'fly_info_tuor_meta', true );
+    // $fly_tours_name_airline_company_one = $infoFly[0]['fly_tours_name_airline_company_one_meta'];
+    // if(!empty($fly_tours_name_airline_company_one)){ update_post_meta( $post_id, 'fly_tours_name_airline_company_one', sanitize_text_field($fly_tours_name_airline_company_one));}
 }
 
 
