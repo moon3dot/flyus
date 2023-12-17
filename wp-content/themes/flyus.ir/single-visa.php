@@ -5,6 +5,15 @@
       <section class="list">
         <div class="container">
         <?php $banner=get_post_meta( get_the_ID(), 'fly_visa_banner_meta', true ); ?>
+        <!-- مغادیر برای پست -->
+        <?php
+       $visaName = $banner[0]['fly_visa_banner_title_meta'];
+       $visaIMG = $banner[0]['fly_visa_banner_flag_meta'];
+       
+        ?>
+
+
+
             <?php if(!empty($banner[0]['fly_visa_banner_img_meta'])) { ?>
                 <img  alt="visa page" class="list__banner" src="<?php echo $banner[0]['fly_visa_banner_img_meta'] ?>">
             <?php } else { ?>
@@ -276,13 +285,15 @@
 
             <!-- sidebar  -->
             <aside class="sidebar">
-              <form action="/visa-form" class="visa__form" id="visa-form">
+              <form action="/flyus/visa-form" class="visa__form" id="visa-form"  method='post'>
+                <input type="hidden" name="visaName" value="<?php  echo $visaName ?> "/>
+                <input type="hidden" name="visaIMG" value="<?php  echo $visaIMG ?> "/>
+               <!-- نوع ویزا -->
+                <?php $price=get_post_meta( get_the_ID(), 'fly_visa_price_meta', true ); ?>
                 <select class="visa__type">
-                  <option value="-1">نوع ویزا</option>
-                  <option value="">ویزای لورم ایپسوم</option>
-                  <option value="">ویزای لورم ایپسوم</option>
-                  <option value="">ویزای لورم ایپسوم</option>
-                  <option value="">ویزای لورم ایپسوم</option>
+                <?php foreach (  $price as $item ) { ?>
+                  <option><?php echo $item['fly_visa_price_type_meta'] ?></option>
+                  <?php } ?>
                 </select>
                 <select name="" id="" class="visa__age">
                   <option value="">کودک</option>

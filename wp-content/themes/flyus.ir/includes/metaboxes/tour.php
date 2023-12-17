@@ -98,6 +98,12 @@ function cmb2_tour_metaboxes()
         
     ) );
     $cmb_tour->add_group_field(  $hotel_tour, array(
+        'name' => 'شماره اصلی',
+        'id'   => 'fly_tour_hotel_main_phonenumber_meta',
+        'type'    => 'text',
+        
+    ) );
+    $cmb_tour->add_group_field(  $hotel_tour, array(
         'name' => 'مدت اقامت',
         'id'   => 'fly_tour_detail_meta',
         'type'    => 'text',

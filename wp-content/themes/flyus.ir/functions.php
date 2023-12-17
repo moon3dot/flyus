@@ -11,7 +11,7 @@ add_theme_support( 'wc-product-gallery-slider' );
 //add file css and js
 function flyus_scripts()
 {
-    wp_enqueue_style('main', THEME_STYLES . '/main.css', '1.2.1');
+    wp_enqueue_style('main', THEME_STYLES . '/main.css', '1.2.2');
     wp_enqueue_style('style', get_stylesheet_uri(),'1.1.0');
 
 

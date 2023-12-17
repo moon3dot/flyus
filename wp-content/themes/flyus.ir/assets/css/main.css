@@ -13439,6 +13439,7 @@ tour category
     -webkit-box-shadow: var(--main-shadow);
     box-shadow: var(--main-shadow);
     margin-bottom: 3rem;
+    margin-top:-42px;
 }
 
 .hotel.hotel-box:hover {
@@ -13464,7 +13465,7 @@ tour category
 
 @media(min-width:1200px) {
     .hotel-box__banner img {
-        max-height: 26rem;
+        max-height: 18rem;
     }
 }
 

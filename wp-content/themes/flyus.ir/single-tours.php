@@ -57,7 +57,7 @@
                 <div class="tour-detail-wrapper">
                     <span class="tour-detail__badge">بررسی کلی</span>
                     <div class="tour-detail__items">
-                        <div class="tour-detail__item primary">
+                        <div class="tour-detail__item primary" style="">
                         <?php if ( ! empty( $hotel[0]['fly_tour_hotel_name_meta'] ) ) { ?>
                             <span>
                                 نام هتل: <?php echo $hotel[0]['fly_tour_hotel_name_meta'] ?>
@@ -310,6 +310,7 @@
                     </svg>
                 </div>
                 <?php $hotel = get_post_meta( get_the_ID(), 'fly_paments_tuor_meta', true ); ?>
+                <div class="table__container">
                 <table class="table-price">
                     <thead>
                         <tr>
@@ -343,6 +344,7 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </div>
             <!-- خدمات تور-->
             <div class="col-12 col-lg-12">
@@ -356,6 +358,7 @@
                     </svg>
                 </div>
                 <?php $hotel = get_post_meta( get_the_ID(), 'fly_tours-Services_meta', true ); ?>
+                <div class="table__container">
                 <table class="table-price">
                     <thead>
                         <tr>
@@ -425,6 +428,7 @@
                                        </svg>
                                    </div>
                                    <?php $hotel = get_post_meta( get_the_ID(), 'fly_pament_tuor_meta', true ); ?>
+                                   <div class="table__container">
                                    <table class="table-price">
                                        <thead>
                                            <tr>
@@ -466,6 +470,8 @@
                                        </thead>
                                        
                                    </table>
+                                   </div>
+                                   </div>
                                </div>
              </div>            
                 </div>
