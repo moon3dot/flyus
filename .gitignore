@@ -4,10 +4,10 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 #ignore the wp-content folder
-wp-content/languages/
+# wp-content/languages/
 # wp-content/plugins/
 wp-content/themes/flyus.ir/assets/audios/
-wp-content/themes/flyus.ir/assets/fonts/
+# wp-content/themes/flyus.ir/assets/fonts/
 wp-content/themes/flyus.ir/assets/img/
 wp-content/themes/flyus.ir/assets/video/
 wp-content/upgrade/
