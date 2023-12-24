@@ -12,12 +12,9 @@ if ( ! empty( $_POST ) ) {
 	$_SESSION['age_71'] = $_POST['server-71-result'];
 	$_SESSION['age_76'] = $_POST['server-76-result'];
 	$_SESSION['age_81'] = $_POST['server-81-result'];
-
 	$_SESSION['passengers'] = $_POST['insurance-passengers-input'];
-
 	$_SESSION['single_insurance_destination_name'] = $_POST['single_insurance_destination_name'];
 	$_SESSION['single_insurance_destination_code'] = $_POST['single-insurance-destination-code'];
-    
 	$_SESSION['single_travel_time'] = $_POST['single-travel-time'];
 
 }

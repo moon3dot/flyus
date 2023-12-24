@@ -1,0 +1,508 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WC Saman Kish\n"
+"POT-Creation-Date: 2023-08-07 00:24+0330\n"
+"PO-Revision-Date: 2023-08-07 00:29+0330\n"
+"Last-Translator: \n"
+"Language-Team: https://ham3da.ir\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: saman-woocommerce.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#. Plugin Name of the plugin/theme
+#: inc/admin.php:12
+msgid "WC Saman kish"
+msgstr "سامان کیش برای ووکامرس"
+
+#: inc/admin.php:13
+#, php-format
+msgid "Hi %s, to Register %s Plugin click %s."
+msgstr "سلام %s ، برای ثبت و فعال‌سازی افزونه %s %s کلیک کنید."
+
+#: inc/admin.php:13
+msgid "Here"
+msgstr "اینجا"
+
+#: inc/admin.php:43 inc/admin.php:44
+msgid "Saman kish"
+msgstr "سامان کیش"
+
+#: inc/admin.php:76
+msgid "Activation"
+msgstr "فعال‌سازی"
+
+#: inc/admin.php:77
+msgid "More products"
+msgstr "محصولات بیشتر"
+
+#: inc/card_custom_feild.php:88
+msgid "Bank card"
+msgstr "کارت بانکی"
+
+#: inc/card_custom_feild.php:103
+msgid "Enter card number"
+msgstr "شماره کارت را وارد کنید"
+
+#: inc/card_custom_feild.php:104 inc/card_functions.php:181
+msgid "Card number"
+msgstr "شماره کارت"
+
+#: inc/card_custom_feild.php:106
+msgid ""
+"Enter the number of cards allowed for payment numerically without a dash. "
+"Like: 6037798090911012. <b>Separator:</b>Enter And comma(,)"
+msgstr ""
+"شماره کارت های مجاز برای پرداخت را به صورت عددی بدون خط تیره یا فاصله وارد "
+"کنید. مثال: 6037798090911012. <b> جداکننده: </b> Enter و کاما (,)"
+
+#: inc/card_custom_feild.php:121
+msgid "Card number not entered!"
+msgstr "شماره کارت وارد نشده!"
+
+#: inc/card_functions.php:155
+msgid "Selected card number"
+msgstr "شماره کارت انتخاب شده"
+
+#: inc/card_functions.php:164
+msgid "Payment card number"
+msgstr "شماره کارت پرداختی"
+
+#: inc/card_functions.php:171
+msgid "Payment with a confirmed card"
+msgstr "پرداخت با کارت تایید شده"
+
+#: inc/card_functions.php:171
+msgid "Payment with an unverified card"
+msgstr "پرداخت توسط کارت غیر مجاز"
+
+#: inc/card_functions.php:174
+msgid "Payment status"
+msgstr "وضعیت پرداخت"
+
+#: inc/functions.php:7
+msgid "Rial"
+msgstr "ریال"
+
+#: inc/functions.php:11
+msgid "Toman"
+msgstr "تومان"
+
+#: inc/functions.php:15
+msgid "Thousand Rials"
+msgstr "هزار ریال"
+
+#: inc/functions.php:19
+msgid "Thousand Tomans"
+msgstr "هزار تومان"
+
+#: inc/licence.php:93
+msgid "Saman Kish Gateway License Expiration"
+msgstr "انقضای لایسنس درگاه سامان کیش"
+
+#: inc/licence.php:97
+#, php-format
+msgid ""
+"Hi, dear user, %s Plugin License has expired on your site. Please reactivate "
+"it."
+msgstr ""
+"با سلام، کاربر گرامی، مجوز افزونه %s در سایت شما منقضی شده است. لطفاً نسبت به "
+"فعال‌سازی مجدد آن اقدام نمایید."
+
+#: inc/licence.php:98
+#, php-format
+msgid "If you think this is a mistake, please contact %s support."
+msgstr ""
+"اگر فکر می‌کنید این کار به اشتباه انجام شده است ، لطفاً با پشتیبانی %s تماس "
+"بگیرید."
+
+#: inc/licence.php:126 inc/licence.php:172
+msgid "Error checking license status!"
+msgstr "خطا در بررسی وضعیت لایسنس!"
+
+#: inc/tabs/main.php:8
+msgid "Status"
+msgstr "وضعیت"
+
+#: inc/tabs/main.php:18
+msgid "Congratulations! This plugin is active."
+msgstr "تبریک می‌گوییم! این افزونه فعال‌سازی شده است."
+
+#: inc/tabs/main.php:24
+msgid "This plugin requires a license to use it."
+msgstr "برای استفاده از این پلاگین باید لایسنس آن را ثبت کنید."
+
+#: inc/tabs/main.php:34
+msgid "License Key"
+msgstr "کلید لایسنس"
+
+#: inc/tabs/main.php:40
+#, php-format
+msgid ""
+"When you purchase this product from %s, a license key is assigned to your "
+"order and you can see it in your User Panel."
+msgstr ""
+"هنگامی که این محصول را از %s خریداری کرده‌اید، یک کلید لایسنس به سفارش شما "
+"اختصاص داده شده است که می‌توانید آن را در پنل کاربری خود مشاهده کنید."
+
+#: inc/tabs/main.php:53
+msgid "Submit"
+msgstr "ثبت"
+
+#: inc/tabs/main.php:62
+msgid "Gateway settings"
+msgstr "تنظیمات درگاه"
+
+#: inc/tabs/main.php:70
+#, php-format
+msgid "Version: %s"
+msgstr "نگارش: %s"
+
+#: saman-woocommerce.php:94 saman-woocommerce.php:193
+msgid "Saman Kish"
+msgstr "سامان کیش"
+
+#: saman-woocommerce.php:95
+msgid "Saman Kish redirects customers to Shaparak for payment."
+msgstr "سامان کیش مشتریان را برای پرداخت به سامانه پرداخت شاپرک هدایت می کند."
+
+#: saman-woocommerce.php:179
+msgid "Saman Kish Settings"
+msgstr "تنظیمات سامان کیش"
+
+#: saman-woocommerce.php:184
+msgid "Enable/Disable"
+msgstr "فعال/غیرفعال"
+
+#: saman-woocommerce.php:186
+msgid "Enable Saman Kish payment method"
+msgstr "فعال کردن روش پرداخت سامان کيش"
+
+#: saman-woocommerce.php:190
+msgid "Title"
+msgstr "عنوان"
+
+#: saman-woocommerce.php:192
+msgid "This controls the title which the user sees during checkout."
+msgstr "عنوانی را که کاربر در هنگام پرداخت می بیند تعیین می‌کند."
+
+#: saman-woocommerce.php:197
+msgid "Description"
+msgstr "شرح"
+
+#: saman-woocommerce.php:200
+msgid "This controls the description which the user sees during checkout."
+msgstr ""
+"در این بخش متنی را که می‌خواهید کاربر در هنگام انتخاب این درگاه مشاهده نماید "
+"وارد نمایید."
+
+#: saman-woocommerce.php:201
+msgid "Secure payment with Saman Kish payment gateway"
+msgstr "پرداخت امن با درگاه پرداخت امان کيش"
+
+#: saman-woocommerce.php:204
+msgid "Merchant code"
+msgstr "کد پذیرنده"
+
+#: saman-woocommerce.php:206
+msgid "Merchant code has been sent to you by Saman Kish."
+msgstr "کد پذیرنده توسط \"سامان کيش\" برای شما فرستاده شده است."
+
+#: saman-woocommerce.php:212
+msgid "Account type"
+msgstr "نوع حساب"
+
+#: saman-woocommerce.php:213
+msgid "Choose the Account type."
+msgstr "نوع حساب را انتخاب کنید."
+
+#: saman-woocommerce.php:215
+msgid "Normal"
+msgstr "عادی"
+
+#: saman-woocommerce.php:216
+msgid "Governmental"
+msgstr "دولتی"
+
+#: saman-woocommerce.php:221
+msgid "Settlement account numbers:"
+msgstr "شماره حسابهای تسویه:"
+
+#: saman-woocommerce.php:224
+msgid ""
+"If your account is a government account or you have requested to settle the "
+"transaction to several accounts, you must complete this option. otherwise "
+"leave blank."
+msgstr ""
+"اگر حساب شما یک حساب دولتی است یا درخواست تسویه تراکنش به چندین حساب را کرده "
+"اید، باید این گزینه را تکمیل کنید. در غیر اینصورت خالی بگذارید."
+
+#: saman-woocommerce.php:225
+msgid "In each line, enter the information of an account number."
+msgstr "در هر خط، اطلاعات یک شماره حساب را وارد کنید."
+
+#: saman-woocommerce.php:226
+msgid "Format: IBAN (1) - Percentage (2) - Payment ID (3)"
+msgstr "فرمت: شماره شبا (1) - سهم به درصد (2) - شناسه پرداخت (3)"
+
+#: saman-woocommerce.php:227
+msgid "Example:"
+msgstr "مثال:"
+
+#: saman-woocommerce.php:228
+msgid "The sum of the percentages must be equal to 100."
+msgstr "مجموع درصدها باید برابر با 100 باشد."
+
+#: saman-woocommerce.php:232
+msgid "Pre-invoice"
+msgstr "پیش فاکتور"
+
+#: saman-woocommerce.php:234
+msgid "Show pre-invoice"
+msgstr "نمایش پیش فاکتور"
+
+#: saman-woocommerce.php:238 saman-woocommerce.php:240
+msgid "Sync with mobile"
+msgstr "همگام سازی با موبایل"
+
+#: saman-woocommerce.php:241
+msgid "Send mobile number to gateway to save card number"
+msgstr "ارسال شماره تلفن همراه به درگاه پرداخت برای ذخیره شماره کارت"
+
+#: saman-woocommerce.php:247
+msgid "Ciphers to use for SSL"
+msgstr "روش رمزنگاری برای SSL"
+
+#: saman-woocommerce.php:248
+msgid "Choose the encryption method compatible with your host."
+msgstr "روش رمزنگاری سازگار با هاست خود را انتخاب کنید."
+
+#: saman-woocommerce.php:250
+msgid "Default"
+msgstr "پیش‌فرض"
+
+#: saman-woocommerce.php:258
+msgid "Check card number"
+msgstr "بررسی شماره کارت کاربر"
+
+#: saman-woocommerce.php:260
+msgid "Enable"
+msgstr "فعال‌سازی"
+
+#: saman-woocommerce.php:261
+msgid ""
+"‌If this option is enabled, the user can only buy with the cards defined by "
+"the site administrator in user profile, and if user pays with other cards, "
+"user order will be checked."
+msgstr ""
+"اگر این گزینه فعال باشد، کاربر تنها می تواند با کارت های تعریف شده توسط مدیر "
+"سایت در پروفایل کاربر خرید کند و اگر کاربر با کارت های دیگر پرداخت کند، سفارش "
+"کاربر بررسی خواهد شد."
+
+#: saman-woocommerce.php:266
+msgid "Gateway logo"
+msgstr "لوگوی درگاه"
+
+#: saman-woocommerce.php:269
+msgid "Logo URL"
+msgstr "آدرس لوگو"
+
+#: saman-woocommerce.php:274
+msgid "Successful payment message"
+msgstr "پیام پرداخت موفق"
+
+#: saman-woocommerce.php:276
+msgid ""
+"Available variables:<br/>\n"
+"                                            <strong>%Transaction_id%</"
+"strong> : Transaction id<br/>\n"
+"                                            <strong>%Order_Number%</strong> : "
+"Order Number<br/>\n"
+"                                            <strong>%RefNum%</strong> : "
+"Reference number"
+msgstr ""
+"متغیرهای موجود:<br/>\n"
+"                                            <strong>%Transaction_id%</"
+"strong> : شناسه تراکنش<br/>\n"
+"                                            <strong>%Order_Number%</strong> : "
+"شماره سفارش<br/>\n"
+"                                            <strong>%RefNum%</strong> : شماره "
+"مرجع"
+
+#: saman-woocommerce.php:280
+msgid "Your order has been paid successfully."
+msgstr "سفارش شما با موفقیت پرداخت شده است."
+
+#: saman-woocommerce.php:283
+msgid "Unsuccessful payment message"
+msgstr "پیام پرداخت ناموفق"
+
+#: saman-woocommerce.php:285
+msgid "Available variables: %fault% : Error message"
+msgstr "متغیرهای موجود: %fault% : پیام خطا"
+
+#: saman-woocommerce.php:286
+msgid "Payment failed. %fault%"
+msgstr "پرداخت با شکست مواجه شد. %fault%"
+
+#: saman-woocommerce.php:289
+msgid "Canceled payment message"
+msgstr "پیام پرداخت لغو شده"
+
+#: saman-woocommerce.php:291
+msgid "Payment canceled."
+msgstr "پرداخت لغو شد."
+
+#: saman-woocommerce.php:438
+msgid "Payment gateway license not registered!"
+msgstr "لایسنس درگاه پرداخت ثبت نشده است!"
+
+#: saman-woocommerce.php:448
+msgid "Pay"
+msgstr "پرداخت"
+
+#: saman-woocommerce.php:449
+msgid "Back"
+msgstr "بازگشت"
+
+#: saman-woocommerce.php:482
+msgid "Connecting to the payment gateway"
+msgstr "اتصال به درگاه پرداخت"
+
+#: saman-woocommerce.php:542
+msgid "Error connecting to payment gateway "
+msgstr "خطای اتصال به درگاه پرداخت "
+
+#: saman-woocommerce.php:649
+msgid "Unknown error"
+msgstr "خطای ناشناخته"
+
+#: saman-woocommerce.php:744
+#, php-format
+msgid ""
+"Payment was successful.<br>Transaction id : %s <br>Order id: %s<br>Amount "
+"paid: %s"
+msgstr ""
+"پرداخت موفق بود.<br/>شناسه تراکنش : %s <br>شناسه سفارش: %s<br>مبلغ پرداخت "
+"شده: %s"
+
+#: saman-woocommerce.php:750
+msgid "Awaiting review due to payment with unregistered card."
+msgstr "در انتظار بررسی به دلیل پرداخت با کارت ثبت نشده."
+
+#: saman-woocommerce.php:753
+#, php-format
+msgid ""
+"Payment has been made successfully, but due to the discrepancy of the payment "
+"card number, it needs to be checked and confirmed. <br/>Transaction id: %s "
+"<br>Order id: %s<br>Amount paid: %s"
+msgstr ""
+"پرداخت با موفقیت انجام شده است، اما به دلیل اختلاف شماره کارت پرداخت، نیاز به "
+"بررسی و تأیید دارد. <br/>شناسه تراکنش: %s <br>شناسه سفارش: %s<br>مبلغ پرداخت "
+"شده: %s"
+
+#: saman-woocommerce.php:770
+#, php-format
+msgid ""
+"Payment has been made successfully, but due to the discrepancy of the payment "
+"card number, it needs to be checked and confirmed. <br/>Transaction id: %s "
+"<br>Order id: %s"
+msgstr ""
+"پرداخت با موفقیت انجام شده است، اما به دلیل اختلاف شماره کارت پرداخت، نیاز به "
+"بررسی و تأیید دارد. <br/>شناسه تراکنش: %s <br>شناسه سفارش: %s"
+
+#: saman-woocommerce.php:805 saman-woocommerce.php:831
+msgid "Transaction id: "
+msgstr "شناسه تراکن: "
+
+#: saman-woocommerce.php:806 saman-woocommerce.php:832
+msgid "Order id: "
+msgstr "شماره درخواست تراکنش: "
+
+#: saman-woocommerce.php:852
+msgid ""
+"The amount paid by the user will be refunded through the payment gateway."
+msgstr "مبلغ پرداخت شده توسط کاربر از طریق دروازه پرداخت بازپرداخت خواهد شد."
+
+#: saman-woocommerce.php:857
+msgid ""
+"A system error occurred while refuning the amount, the amount will be "
+"refunded to the user's account within 24 hours."
+msgstr ""
+"خطای سیستمی هنگام بازپرداخت مبلغ رخ داد، مبلغ ظرف ۲۴ ساعت به حساب کاربر "
+"بازپرداخت خواهد شد."
+
+#: saman-woocommerce.php:888
+msgid "There is no order number."
+msgstr "شماره سفارش یافت نشد."
+
+#: saman-woocommerce.php:902
+msgid "Error Code: "
+msgstr "کد خطا: "
+
+#: saman-woocommerce.php:902
+msgid "Description: "
+msgstr "شرح: "
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://ham3da.ir/"
+msgstr "https://ham3da.ir/"
+
+#. Description of the plugin/theme
+msgid "This plugin adds Saman Kish payment gateway to WooCommerce."
+msgstr "این افزونه روش پرداخت سامان کیش را به ووکامرس اضافه می‌کند."
+
+#. Author of the plugin/theme
+msgid "Javad Ehteshami"
+msgstr "جواد احتشامی"
+
+#~ msgid "Multi Settlement"
+#~ msgstr "تسویه به چند حساب"
+
+#~ msgid ""
+#~ "If you have requested settlement to several accounts from Saman Kish and "
+#~ "your request has been approved; Enter your account numbers here."
+#~ msgstr ""
+#~ "اگر از سامان کیش درخواست تسویه به چند حساب را کرده‌اید و درخواست شما تایید "
+#~ "شده است؛ شماره حساب‌های خود را در اینجا وارد کنید."
+
+#~ msgid "Organizational ID"
+#~ msgstr "شناسه سازمانی"
+
+#~ msgid "30-digit ID for government accounts"
+#~ msgstr "شناسه 30 رقمی برای حساب های دولتی"
+
+#~ msgid "IBAN Number"
+#~ msgstr "شماره شبا"
+
+#~ msgid "18-digit IRAN IBAN(For government accounts)"
+#~ msgstr "شماره شبای 18 رقمی (برای حساب های دولتی)"
+
+#, fuzzy
+#~| msgid "Transaction id: "
+#~ msgid "Transaction Type"
+#~ msgstr "شناسه تراکن: "
+
+#~ msgid "Plugin license registration successful."
+#~ msgstr "ثبت لایسنس افزونه با موفقیت انجام شد."
+
+#~ msgid "Error: The request failed!"
+#~ msgstr "خطا: درخواست با شکست مواجه شد!"
+
+#~ msgid "Error: "
+#~ msgstr "خطا: "
+
+#~ msgid "Please enter the license code."
+#~ msgstr "لطفا کد فعال سازی را وارد کنید."

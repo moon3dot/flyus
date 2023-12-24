@@ -11,8 +11,8 @@ add_theme_support( 'wc-product-gallery-slider' );
 //add file css and js
 function flyus_scripts()
 {
-    wp_enqueue_style('main', THEME_STYLES . '/main.css', '1.2.2');
-    wp_enqueue_style('style', get_stylesheet_uri(),'1.1.0');
+    wp_enqueue_style('main', THEME_STYLES . '/main.css', '1.3.1');
+    wp_enqueue_style('style', get_stylesheet_uri(),'1.1.1');
 
 
     wp_enqueue_script('swiper', THEME_JS . '/swiper.js','' , '1.1.0', true);
@@ -115,3 +115,39 @@ require_once THEME_INCLUDES . '/ajax.php';
 require_once THEME_INCLUDES . '/settings.php';
 require_once THEME_INCLUDES . '/metabox.php';
 require_once THEME_INCLUDES . '/ajax-insurance/travel-insurance.php';
+
+//woo
+// add_action( 'woocommerce_checkout_billing', 'customise_checkout_field' );
+// function customise_checkout_field( $checkout ) {
+//   $checkout = WC()->checkout;
+//   echo '<div id="customise_checkout_field"><h2>' . __('Heading') . '</h2>';
+//   woocommerce_form_field( 'customised_field_name', array( 'type' => 'text','class' => array('my-field-class form-row-wide') ,'label' => __('Customise Additional Field') ,'placeholder' => __('Guidence') ,'required' => false,) , $checkout->get_value( 'customised_field_name' ) );
+//   echo '</div>';
+// }
+
+// پاک کردن فیلد ها
+add_filter( 'woocommerce_checkout_fields' , 'remove_billing_first_name_field' );
+ 
+function remove_billing_first_name_field( $fields ) {
+ unset($fields['billing']['billing_first_name']); // نام 
+ unset($fields['billing']['billing_last_name']); // نام خانوادگی
+ unset($fields['billing']['billing_company']); // اسم شرکت
+ unset($fields['billing']['billing_country']); // اسم کشور
+ unset($fields['billing']['billing_address_1']);
+ unset($fields['billing']['billing_address_2']);
+ unset($fields['billing']['billing_state']);
+ unset($fields['billing']['billing_city']);
+ unset($fields['billing']['billing_postcode']);
+ unset($fields['billing']['billing_phone']);
+ unset($fields['billing']['billing_email']);
+ return $fields;
+}
+
+// اضافه کردن قیمت
+add_action( 'woocommerce_checkout_order_review', 'customise_checkout_order_review' );
+function customise_checkout_order_review() {
+
+}
+
+
+

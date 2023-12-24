@@ -87,6 +87,7 @@
 
           </div>
         </div>
+        <!-- موبایل -->
         <div class="responsive-nav__sec">
           <p class="responsive-nav__account-title">
             حساب کاربری
@@ -103,128 +104,28 @@
           <?php
  $menu = wp_get_nav_menu_name('main-menu');
  $menu_items = wp_get_nav_menu_items($menu);
-
-		$menu_list .= '<ul class="responsive-nav__list">' ."\n";
-
-		$count = 0;
-		$submenu = false;
-		if($menu_items){
-		foreach( $menu_items as $menu_item ) {
-			
-			$link = $menu_item->url;
-			$title = $menu_item->title;
-			
-			if ( !$menu_item->menu_item_parent ) {
-				$parent_id = $menu_item->ID;
-				
-				$menu_list .= '<li class="responsive-nav__list-item">' ."\n";
-				$menu_list .= '<a href="'.$link.'" class="responsive-nav__list-link">'.$title.'</a>' ."\n";
-			}
-      
-
-			if ( $parent_id == $menu_item->menu_item_parent ) {
-
-				if ( !$submenu ) {
-					$submenu = true;
-					$menu_list .= '<ul class="responsive-nav__submenu">' ."\n";
-				}
-
-				$menu_list .= '<li class="responsive-nav__submenu-item">' ."\n";
-				$menu_list .= '<a href="'.$link.'" class="responsive-nav__submenu-link">'.$title.'</a>' ."\n";
-				$menu_list .= '</li>' ."\n";
-					
-
-				if ( !empty($menu_items[ $count + 1 ]->menu_item_parent) != $parent_id && $submenu ){
-					$menu_list .= '</ul>' ."\n";
-					$submenu = false;
-				}
-        
-
-			}
-
-			if ( !empty($menu_items[ $count + 1 ]->menu_item_parent) && $menu_items[ $count + 1 ]->menu_item_parent != $parent_id ) { 
-				$menu_list .= '</li>' ."\n";      
-				$submenu = false;
-			} 
-
-			$count++;
-		}
-  }
-		
-		$menu_list .= '</ul>' ."\n";
-
-	
-	echo $menu_list;
-
 ?>
-          <!--<ul class="responsive-nav__list">
-            <li class="responsive-nav__list-item">
-              <a href="" class="responsive-nav__list-link">بلیط</a>
-            </li>
-            <li class="responsive-nav__list-item">
-              <a href="" class="responsive-nav__list-link">اقامت</a>
-            </li>
-            <li class="responsive-nav__list-item">
-              <div href="" class="responsive-nav__list-link">
-                <span>تور</span>
-                <svg id="arrow-down-bold" class="responsive-nav__list-item--icon" viewBox="0 0 8 5" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1L4.00001 4L7 1" stroke="#585858" stroke-width="0.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </div>
-              <ul class="responsive-nav__submenu">
-                <li class="responsive-nav__submenu-item">
-                  <a href="#" class="responsive-nav__submenu-link">تور استانبول</a>
-                </li>
-                <li class="responsive-nav__submenu-item">
-                  <a href="#" class="responsive-nav__submenu-link">تور ارمنستان</a>
-                </li>
-                <li class="responsive-nav__submenu-item">
-                  <a href="#" class="responsive-nav__submenu-link">تور تایلند</a>
-                </li>
-                <li class="responsive-nav__submenu-item">
-                  <a href="#" class="responsive-nav__submenu-link">تور اسپانسیا</a>
-                </li>
-                <li class="responsive-nav__submenu-item">
-                  <a href="#" class="responsive-nav__submenu-link">تور فرانسه</a>
-                </li>
-              </ul>
-            </li>
-            <li class="responsive-nav__list-item">
-              <div href="" class="responsive-nav__list-link">
-                <span>تور</span>
-                <svg id="arrow-down-bold" class="responsive-nav__list-item--icon" viewBox="0 0 8 5" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1L4.00001 4L7 1" stroke="#585858" stroke-width="0.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </div>
-              <ul class="responsive-nav__submenu">
-                <li class="responsive-nav__submenu-item">
-                  <a href="#" class="responsive-nav__submenu-link">تور استانبول</a>
-                </li>
-                <li class="responsive-nav__submenu-item">
-                  <a href="#" class="responsive-nav__submenu-link">تور ارمنستان</a>
-                </li>
-                <li class="responsive-nav__submenu-item">
-                  <a href="#" class="responsive-nav__submenu-link">تور تایلند</a>
-                </li>
-                <li class="responsive-nav__submenu-item">
-                  <a href="#" class="responsive-nav__submenu-link">تور اسپانسیا</a>
-                </li>
-                <li class="responsive-nav__submenu-item">
-                  <a href="#" class="responsive-nav__submenu-link">تور فرانسه</a>
-                </li>
-              </ul>
-            </li>
-            <li class="responsive-nav__list-item">
-              <a href="" class="responsive-nav__list-link">بیشتر</a>
-            </li>
-            <li class="responsive-nav__list-item">
-              <a href="" class="responsive-nav__list-link">راهنمای سفر</a>
-            </li>
-          </ul>-->
+<?php
+
+$header_nav_menu = wp_nav_menu( [
+	'theme_location' => 'main-menu',
+	'fallback_cb' => false,
+	'echo' => false,
+] );
+?>
+
+
+	<?php if ( $header_nav_menu ) : ?>
+		<nav class="site-navigation">
+			<?php
+			// PHPCS - escaped by WordPress with "wp_nav_menu"
+			echo $header_nav_menu; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			?>
+		</nav>
+	<?php endif; ?>
+
+
+        
         </div>
         <div class="responsive-nav__sec">
           <p class="responsive-nav__account-title responsive-nav__account-title--header">

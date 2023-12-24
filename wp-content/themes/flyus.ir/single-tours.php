@@ -1,9 +1,10 @@
 <?php get_header(); ?>
     <main class="main tour-list">
-
+    <div class="tour-cat__hero">
         <div class="container">
-            <div class="row">
-                <div class="col-8 tour-detail__hero">
+            <div class="tour-cat__wrapper">
+                <div class="row">
+                <div class="col-12 tour-detail__hero">
                 <!-- img -->
             <div class="container">
 				<?php $gallery = get_post_meta( get_the_ID(), 'fly_tour_gallery_meta', true ); ?>
@@ -45,8 +46,11 @@
             </div>
         
                 </div>
+                </div>
             </div>
         </div>
+    </div>
+
             <!-- dital -->
         <div class="container">
         <div class="row">
@@ -57,14 +61,14 @@
                 <div class="tour-detail-wrapper">
                     <span class="tour-detail__badge">بررسی کلی</span>
                     <div class="tour-detail__items">
-                        <div class="tour-detail__item primary" style="">
+                        <div class="tour-detail__item primary-btn tour-detail_item__mobile_w w_resmn" >
                         <?php if ( ! empty( $hotel[0]['fly_tour_hotel_name_meta'] ) ) { ?>
                             <span>
                                 نام هتل: <?php echo $hotel[0]['fly_tour_hotel_name_meta'] ?>
                             </span>
                             <?php } ?>
                         </div>
-                        <div class="tour-detail__item primary-btn">
+                        <div class="tour-detail__item primary-btn tour-detail_item__mobile_w">
                             <svg width="16" height="18" viewBox="0 0 16 18" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_1631_19)">
@@ -96,7 +100,7 @@
                             </span>
                             <?php } ?>
                         </div>
-                        <div class="tour-detail__item primary-map">
+                        <div class="tour-detail__item primary-btn tour-detail_item__mobile_w">
                             <svg width="16" height="19" viewBox="0 0 16 19" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_1630_16)">
@@ -124,7 +128,7 @@
                             </a>
                             <?php } ?>
                         </div>
-                        <div class="tour-detail__item secondary">
+                        <div class="tour-detail__item secondary tour-detail_item__mobile_w">
                         <?php if ( ! empty( $hotel[0]['fly_tour_hotel_star_meta'] ) ) { ?>
                             <span>
                                 ستاره هتل : <?php echo $hotel[0]['fly_tour_hotel_star_meta'] ?> ستاره

@@ -32,6 +32,8 @@ if(isset($_POST["visa-type"]))
 
 if(isset($_POST["totalPrice"]))
     $totalPrice = $_POST['totalPrice'];
+    session_start();
+    $_SESSION["totalPrice"] = $totalPrice;
 
 if(isset($_POST["sendTitle"]))
     $sendTitle = $_POST['sendTitle'];
@@ -466,9 +468,18 @@ function checkedUser() {
                         <td><?php echo $totalPrice ?>ریال</td>
                     </tr>
                 </table>
-                <form action="/payment-insurance">
+                <?php 
+if ( is_user_logged_in() ) {
+   $URL_send_form='/checkout';
+} else {
+    $URL_send_form='/wp-admin';
+}
+?>
+
+                <form action="<?php echo $URL_send_form ?>">
                     <button class="footer__newsletter-submit" style="margin-top: 3rem;" >پرداخت آنلاین</button>
                 </form>
+                
             </div>
         </div>
     </div>

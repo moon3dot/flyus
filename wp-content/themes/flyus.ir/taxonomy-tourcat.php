@@ -106,9 +106,17 @@ $query_cat = new WP_Query($args);
                                                 fill="transparent" />
                                         </svg>
                                         <span>5 ستاره</span>
+                                        
                                     </li>
                                 </ul>
                             </div>
+                        <?php
+                            if (session_status() == PHP_SESSION_NONE) {
+                                session_start();
+                             }    
+                             $_SESSION['1211'] = 'myVaria.;kasdasdasdasble';
+                            echo  $_SESSION['1211'];
+                        ?>
                         </aside>
                     </div>
                     <div class="col-12 col-lg-9">
@@ -143,9 +151,9 @@ $query_cat = new WP_Query($args);
                                         </div>
                                         <div class="col-12 col-md-8">
                                             <div class="hotel-box__header" style="display: flex;justify-content: center;">
-                                                <div class="ticket__header-box"style="width: 82%;">
+                                                <div class="ticket__header-box" style="width: 100%;">
                                                     <div class="row" style="height: 58px;">
-                                                        <div class="flight-timing">
+                                                        <div class=""style="width: 100%;">
                                                             <!-- پیدار کردن متا باکس  -->
                                                             <?php $infoFly=get_post_meta( get_the_ID(), 'fly_info_tuor_meta', true ); ?>
                                                             <!-- مدت زمان پرواز -->
@@ -209,7 +217,7 @@ $query_cat = new WP_Query($args);
                                             <?php }  ?>
                 
                                          <div class="hotel-box__body">
-                                            <div class="row mb-none" style=" display: flex; flex-direction: row; width: 82rem;">
+                                            <div class="row mb-none" style=" display: flex; flex-direction: row; justify-content:end;">
                                                 <div class="col-12 col-sm-6">
                                                     <div class="hotel-box__body__right-title">
                                                         <p>نام هتل :</p>
@@ -236,7 +244,7 @@ $query_cat = new WP_Query($args);
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-6" style="    margin-right: -181px; display: flex; width: 41rem; margin-top:3rem">
+                                                <div class="col-12 col-sm-6" style="    margin-right: -181px; display: flex; width: 41rem; margin-top:3rem; justify-content: end;" >
                                                     <div class="hotel-box__body__left-title">
                                                     <?php if(!empty($ticket[0]['fly_tour_ticket_price_meta'])) { ?>
                                                    <p><?php echo $ticket[0]['fly_tour_ticket_price_meta'] ?></p>

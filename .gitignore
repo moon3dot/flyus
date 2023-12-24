@@ -5,7 +5,7 @@
 
 #ignore the wp-content folder
 wp-content/languages/
-wp-content/plugins/
+# wp-content/plugins/
 wp-content/themes/flyus.ir/assets/audios/
 wp-content/themes/flyus.ir/assets/fonts/
 wp-content/themes/flyus.ir/assets/img/
