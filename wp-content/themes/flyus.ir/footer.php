@@ -187,9 +187,10 @@
                         <img src="<?php echo THEME_IMAGE . '/license/CAO.svg' ?>" />
                     </a>
                 </div>
-
-
             </div>
+
+            <button class="hotel-box__body__left-buttons">مشنور حقوق گردشگر</button>
+            
             <div class="footer__copy-right">
                 <p><?php if(isset($footer_setting[0]['fly_footer_copy_option'])){echo $footer_setting[0]['fly_footer_copy_option']; } ?></p>
             </div>

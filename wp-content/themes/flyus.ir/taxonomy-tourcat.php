@@ -110,12 +110,11 @@ $query_cat = new WP_Query($args);
                                     </li>
                                 </ul>
                             </div>
+                            <img src="http://localhost/flyus/wp-content/uploads/2024/01/banner12.png" style="width: 100%;">
                         <?php
                             if (session_status() == PHP_SESSION_NONE) {
                                 session_start();
-                             }    
-                             $_SESSION['1211'] = 'myVaria.;kasdasdasdasble';
-                            echo  $_SESSION['1211'];
+                             }      
                         ?>
                         </aside>
                     </div>
@@ -289,11 +288,14 @@ $query_cat = new WP_Query($args);
 								<?php endif; ?>
                             
                             </div>
+                           
                         </main>
                     </div>
                 </div>
             </div>
         </div>
+        
+<?php cpt_pagination(); ?>
     </div>
 
     <script>

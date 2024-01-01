@@ -174,7 +174,7 @@ $header_nav_menu = wp_nav_menu( [
           </a>
         </li>
         <li class="responsive-navigation__list-item">
-          <a href="#" class="responsive-navigation__list-link">
+          <a href="https://flyus.ir/insurance/" class="responsive-navigation__list-link">
             <svg class="responsive-navigation__list-icon" width="20" height="18" viewBox="0 0 20 18" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_45_18256)">
@@ -195,7 +195,7 @@ $header_nav_menu = wp_nav_menu( [
               </defs>
             </svg>
 
-            <span class="responsive-navigation__list-text">خرید بلیط</span>
+            <span class="responsive-navigation__list-text">بیمه مسافرتی</span>
           </a>
         </li>
         <li class="responsive-navigation__list-item responsive-navigation__list-search" id="responsive-navigation">
